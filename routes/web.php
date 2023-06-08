@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GiftController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Foundation\Application;
@@ -19,23 +20,23 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return Inertia::render('Landing/Index');
 })->name('home');
 
 Route::group(['prefix' => 'discover'], function() {
     Route::get('', [SearchController::class, 'index'])->name('discover.index');
 });
 
+Route::group(['prefix' => 'gift'], function() {
+    Route::post('redeem', [GiftController::class, 'redeem'])->name('redeem.gift');
+    Route::get('', [GiftController::class, 'index'])->name('redeem.index');
+});
+
 Route::get('/profile', [ProfileController::class, 'index'])
     ->middleware('auth')
     ->name('profile');
 
-Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/callback', [AuthController::class, 'callback'])->name('callback');
 Route::get('/signup', [AuthController::class, 'signup'])->name('signup');

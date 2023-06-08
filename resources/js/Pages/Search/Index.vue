@@ -3,18 +3,16 @@
         <!-- first screen -->
         <div class="w-full px-3 py-4">
             <div class="p-5 h-full flex flex-col">
-                <Transition name="swipe" mode="out-in" appear>
-                    <div>
-                        <h1 class="font-neuton text-6xl mb-2">Search with
-                            <span id="asixth" class="font-bebas"></span>
-                        </h1>
-                        <p class="font-cantarell text-medium">Where would you like your order sent?</p>
-                    </div>
-                </Transition>
-
-
-                <div class="w-full lg:w-1/2 my-auto">
-                    <div class="relative">
+                <div class="w-full lg:w-4/5">
+                    <Transition name="swipe" mode="out-in" appear>
+                        <div class="mb-10">
+                            <h1 class="font-neuton text-6xl mb-2">Search with
+                                <span id="asixth" class="font-bebas"></span>
+                            </h1>
+                            <p class="font-cantarell text-medium">Where would you like your order sent?</p>
+                        </div>
+                    </Transition>
+                    <div class="relative mt-10 w-3/5">
                         <button @click="search(searchQuery)"
                             :class="`${searchQuery === '' ? 'cursor-not-allowed' : 'cursor-pointer'} absolute inset-y-0 right-0 flex items-center pr-3`"
                             :disabled="searchQuery === ''">
@@ -24,8 +22,8 @@
                             class="block w-full p-4 pl-10 text-sm border-b border-gray-400 bg-background outline-0"
                             placeholder="Search" required>
                     </div>
-
-                    <div class="font-cantarell text-medium mt-10">
+                    
+                    <div class="font-cantarell text-medium mt-10" v-if="product_total > 0">
                         <h2 class=" text-medium font-cantarell mb-2 fade-item">{{ suggestions.length > 0 ? 'Did you mean :' :
                             'Suggested :' }}</h2>
                         <ul class="font-neuton text-2xl text-gray-600" v-if="suggestions.length === 0">
@@ -38,7 +36,7 @@
 
                         <ul class="font-neuton text-2xl text-gray-600" v-else>
                             <li class="mb-2" v-for="suggestion in suggestions">
-                                <button @click="search('common')">{{ suggestion.name }}</button>
+                                <button @click="search(suggestion.name)">{{ suggestion.name }}</button>
                             </li>
                         </ul>
                     </div>
@@ -77,7 +75,7 @@
                     </div>
                 </div>
                 <Transition name="swipeup" mode="out in">
-                    <div class="relative w-full lg:w-1/2 h-full bg-olive z-10" v-if="productItemDetail != null">
+                    <div class="relative w-full lg:w-1/2 h-full bg-olive overflow-hidden" v-if="productItemDetail != null">
                         <div class="p-5">
                             <img class="w-4/5 m-auto mb-3" src="img/sample-product.png" alt="product">
                             <p class="font-neuton text-2xl mb-2">{{ productItemDetail.name }}</p>
@@ -107,6 +105,10 @@ export default {
             type: Object,
             default: []
         },
+        product_total: {
+            type: Number,
+            default: null
+        },
         user: {
             type: Object,
             default: {}
@@ -123,7 +125,7 @@ export default {
             searchQuery: '',
             productItemDetail: null,
             suggestionHidden: false,
-
+            unfortune: false,
         }
     },
     methods: {
@@ -142,6 +144,8 @@ export default {
                 replace: false,
                 preserveState: true
             })
+
+            if(this.products.length === 0) this.unfortune = true
             this.searchResultHidden = false
         }
     },
@@ -149,7 +153,6 @@ export default {
         var items = document.getElementsByClassName("fade-item");
         for (let i = 0; i < items.length; ++i) {
             setTimeout(() => {
-                console.log(items[i]);
                 items[i].classList.add('fadein')
             }, i * 100)
         }
@@ -169,7 +172,7 @@ export default {
 }
 
 .swipeup-enter-active {
-    animation: up 1s;
+animation: up 1s;
 }
 
 #asixth:before {

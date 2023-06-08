@@ -1,5 +1,5 @@
 <template>
-    <AppHeader :user="$page.props.user"/>
+    <AppHeader class="bg-background border-b border-gray-400 font-cantarell text-gray-400" :user="$page.props.user"/>
     <main class="bg-background">
         <slot></slot>
     </main>

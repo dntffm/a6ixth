@@ -1,6 +1,6 @@
 <template>
-    <footer class="bg-footer font-cantarell z-50">
-        <div class="w-full mx-auto max-w-screen-xl px-4 py-3">
+    <footer class="relative bg-footer font-cantarell">
+        <div class="w-full mx-auto px-4 py-3">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 px-4 py-5">
                 <div>
                     <h2 class="text-white font-bold mb-4 border-white border-b py-3">Subscribe to <span class="font-light">A6IXTH</span></h2>

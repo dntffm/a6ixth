@@ -1,7 +1,7 @@
 <template>
-    <AuthDialog :dark="true" @close="$e => showAuthBar = $e" :show="showAuthBar"/>    
-    <CartDialog :dark="true" @close="$e => showCartBar = $e"  :show="showCartBar"/>
-    <MenuDialog :dark="true" @close="$e => showLeftSideBar = $e" :show="showLeftSideBar"/>
+    <AuthDialog @close="$e => showAuthBar = $e" :show="showAuthBar"/>    
+    <CartDialog @close="$e => showCartBar = $e" :show="showCartBar"/>
+    <MenuDialog @close="$e => showLeftSideBar = $e" :show="showLeftSideBar"/>
     
     <header v-bind="$attrs">
         <div class="w-full p-5">
@@ -10,7 +10,7 @@
                     <Bars3Icon class="w-7 h-7 " />
                 </button>
                 <a href="/">
-                    <img class="w-[25px] mx-auto" src="img/a6ixth.png" alt="logo">
+                    <img class="w-[25px] mx-auto" src="img/a6ixth-white.png" alt="logo">
                 </a>
                 <div class="justify-center items-center gap-6 ml-auto hidden lg:flex md:flex">
                     <a :href="route('discover.index')" class=" text-2xl" href="">Search</a>
@@ -19,7 +19,7 @@
                         <UserIcon class="w-7 h-7 " />
                     </button>
                     <button @click="showCartBar = true">
-                        <img src="icon/cart-dark.png" class="w-6 " />
+                        <img src="icon/cart-light.png" class="w-6" />
                     </button>
 
                 </div>
@@ -36,7 +36,7 @@ import CartDialog from './CartDialog.vue';
 
 export default {
     inheritAttrs: true,
-    name: 'AppHeader',
+    name: 'AppHeaderTransparent',
     props: {
         user: {
             type: Object,
@@ -47,12 +47,17 @@ export default {
         Bars3Icon, UserIcon, ShoppingBagIcon, XMarkIcon,
         AuthDialog, MenuDialog, CartDialog
     },
+    methods: {
+        showCart() {
+            console.log();
+        }
+    },
     data() { 
         return {
             showLeftSideBar: false,
             showAuthBar: false,
             showCartBar: false
         }
-    }
+    },
 }
 </script>

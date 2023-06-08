@@ -20,13 +20,14 @@ export default {
             'background': '#FFFEF2',
             'white': '#FFFFFF',
             'bone': '#F8F3DF',
-            'olive': '#E1DCC7'
+            'olive': '#E1DCC7',
         },
         extend: {
             fontFamily: {
                 cantarell: ['Cantarell', ...defaultTheme.fontFamily.sans],
                 bebas: ['Bebas Neue', ...defaultTheme.fontFamily.sans],
                 neuton: ['Neuton', ...defaultTheme.fontFamily.sans],
+                averia: ['Averia Serif Libre', ...defaultTheme.fontFamily.sans],
             },
         },
     },

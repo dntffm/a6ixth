@@ -30,6 +30,10 @@ return [
     */
 
     'env' => env('APP_ENV', 'production'),
+    'auth0_domain' => env('AUTH0_DOMAIN',''),
+    'auth0_client_id' => env('AUTH0_CLIENT_ID',''),
+    'auth0_client_secret' => env('AUTH0_CLIENT_SECRET',''),
+    'cookieSecret' => env('APP_KEY',''),
 
     /*
     |--------------------------------------------------------------------------

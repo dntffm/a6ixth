@@ -30,13 +30,13 @@ class SearchController extends Controller
             ...$productSuggestions->toArray(),
             ...$seriesSuggestions->toArray()
         ]);
+
         
-        
-        // $user = auth()->user();
 
         return Inertia::render('Search/Index', [
             'suggestions' => request()->has('search') ? $suggestions : [],
             'products' => $products,
+            'product_total' => count($products)
             // 'user' => $user
         ]);
     }
