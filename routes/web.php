@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GiftController;
+use App\Http\Controllers\NotifiedController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Foundation\Application;
@@ -30,6 +31,10 @@ Route::group(['prefix' => 'discover'], function() {
 Route::group(['prefix' => 'gift'], function() {
     Route::post('redeem', [GiftController::class, 'redeem'])->name('redeem.gift');
     Route::get('', [GiftController::class, 'index'])->name('redeem.index');
+});
+
+Route::group(['prefix' => 'notified'], function() {
+    Route::get('', [NotifiedController::class, 'index'])->name('get-notified.index');
 });
 
 Route::get('/profile', [ProfileController::class, 'index'])

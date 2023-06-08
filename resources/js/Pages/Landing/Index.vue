@@ -21,19 +21,18 @@
                 </button>
             </div>
         </div>
-        {{ $attrs.errors.email ? '1' : '0' }}
         <Transition name="swipe">
             <section class="absolute p-4 bottom-0 lg:right-16 lg:bottom-16 z-50 font-cantarell w-full md:w-[500px]"
                 v-if="showRedeemForm">
                 <input v-model="redeemCode"
-                    :class="`w-full ${$attrs.errors.email ? 'border-red-500 text-red-500 placeholder-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white text-white placeholder-white focus:border-white'} mb-4 text-xl p-4 font-cantarell bg-transparent`"
+                    :class="`w-full ${$attrs.errors.code ? 'border-red-500 text-red-500 placeholder-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white text-white placeholder-white focus:border-white'} mb-4 text-xl p-4 font-cantarell bg-transparent`"
                     type="text" name="" id="" placeholder="Enter Your Code" />
                 <input v-model="emailRedeem"
-                    :class="`w-full ${$attrs.errors.code ? 'border-red-500 text-red-500 placeholder-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white text-white placeholder-white focus:border-white'} mb-4 text-xl p-4 font-cantarell bg-transparent`"
+                    :class="`w-full ${$attrs.errors.email ? 'border-red-500 text-red-500 placeholder-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white text-white placeholder-white focus:border-white'} mb-4 text-xl p-4 font-cantarell bg-transparent`"
                     type="text" name="" id="" placeholder="Enter Your Email" />
                 <p class="text-sm text-white my-4 before:content['*']">*Only members who visited our truck are able to
                     access further.
-                    Get notified on our next AHAUS location launch here</p>
+                    Get notified on our next AHAUS location launch <a class="underline" :href="route('get-notified.index')">here</a></p>
                 <button @click.prevent="redeem"
                     class="bg-black text-white hover:bg-white hover:text-black font-bold font-cantarell h-20 w-1/2 m-auto transition hover:duration-100">Submit</button>
             </section>
@@ -68,6 +67,7 @@ export default {
     },
     methods: {
         redeem() {
+            console.log(this.emailRedeem);
             const form = useForm({
                 email: this.emailRedeem,
                 code: this.redeemCode

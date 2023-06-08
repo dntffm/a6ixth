@@ -25,9 +25,10 @@ function copyCodeToClipboard() {
 </script>
 
 <template>
-    <AppHeader class="bg-background border-b border-gray-400 font-cantarell text-gray-400" />
-    <main class="bg-background h-screen w-screen">
-        <div class="w-full">
+    <section class="flex flex-col h-screen">
+        <AppHeader class="bg-background border-b border-gray-400 font-cantarell text-gray-400" />
+
+        <div class="w-full bg-background flex flex-grow">
             <Transition v-if="showCoupon">
                 <div class="w-full lg:w-1/4 m-auto">
                     <div class="p-5 bg-[#D9D9D9] flex flex-col gap-4 justify-center items-center rounded-lg">
@@ -56,12 +57,12 @@ function copyCodeToClipboard() {
                         <div class="black w-full"></div>
                         <small>Giftcard Value</small>
                         <p>FREE COFFEE BEANS</p>
-
+    
                         <p>Giftcard Code</p>
                         <div>
                             qwertyufghjk23bnnnnngri
                         </div>
-
+    
                         <AsixthBlackButton>Redeem My Voucher</AsixthBlackButton>
                     </div>
                     <div class="card-front"></div>
@@ -70,13 +71,13 @@ function copyCodeToClipboard() {
                 <p class="font-cantarell mb-10">Wow, congratulations! It appears that you've received a delightful surprise
                     from
                     your coffee companions. Let's unveil the contents and prepare to be amazed by what awaits you.</p>
-
+    
                 <AsixthBlackButton @click="spillCoupon" class="w-[400px] py-4 px-6">Click to reveal the
                     gift</AsixthBlackButton>
             </div>
-
+    
         </div>
-    </main>
+    </section>
 </template>
 
 <style>

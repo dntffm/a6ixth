@@ -1,6 +1,6 @@
 <template>
     <!-- Auth sidebar -->
-    <aside :class="`${dark ? 'bg-[#1E1E1E] text-white' : 'bg-background text-black'} w-full lg:w-1/2 h-screen fixed top-0 ${show ? 'right-0' : '-right-1/2'} z-50 font-neuton duration-300 p-5`">
+    <aside :class="`${dark ? 'bg-[#1E1E1E] text-white' : 'bg-background text-black'} w-full lg:w-1/2 h-screen fixed top-0 ${show ? 'right-0' : '-right-full lg:-right-1/2'} z-50 font-neuton duration-300 p-5`">
         <div class="px-10 py-10">
             <button @click="$emit('close', false)">
                 <XMarkIcon class="w-7 h-7 " />
