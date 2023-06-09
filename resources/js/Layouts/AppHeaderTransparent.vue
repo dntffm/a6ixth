@@ -5,7 +5,7 @@
     
     <header v-bind="$attrs">
         <div class="w-full px-5">
-            <div class="grid grid-cols-3 px-10 py-5">
+            <div class="grid grid-cols-3 px-10 py-4">
                 <button @click="showLeftSideBar = true">
                     <Bars3Icon class="w-7 h-7 " />
                 </button>
@@ -13,13 +13,13 @@
                     <img class="w-[20px] mx-auto" src="img/a6ixth-white.png" alt="logo">
                 </a>
                 <div class="justify-center items-center gap-7 ml-auto hidden lg:flex md:flex">
-                    <a :href="route('discover.index')" class=" text-xl" href="">Search</a>
+                    <a :href="route('discover.index')" class="text-medium" href="">Search</a>
 
                     <button @click="showAuthBar = true">
-                        <img src="icon/auth-light.png" class="w-5" />
+                        <img src="icon/auth-light.png" class="w-4"/>
                     </button>
                     <button @click="showCartBar = true">
-                        <img src="icon/cart-light.png" class="w-5" />
+                        <img src="icon/cart-light.png" class="w-4"/>
                     </button>
 
                 </div>
