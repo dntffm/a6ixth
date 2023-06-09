@@ -16,8 +16,8 @@
                     <AsixthBlackButton class="w-full md:w-1/4">Submit</AsixthBlackButton>
                 </div>
             </div>
-            <div class="w-1/2 bg-[#F8F3DF] hidden lg:flex lg:justify-center lg:items-center">
-                <img src="/img/ahaus.png" alt="Ahaus Truck">
+            <div class="w-1/2 relative bg-[#F8F3DF] hidden lg:flex lg:justify-center lg:items-center">
+                <img src="/img/ahaus-upgrade.png" alt="Ahaus Truck" class="absolute right-0">
             </div>
         </div>
     </section>
