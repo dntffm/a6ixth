@@ -3,12 +3,12 @@ import AppHeader from '../../Layouts/AppHeader.vue';
 import AsixthBlackButton from '../../Components/AsixthBlackButton.vue'
 import { ClipboardIcon } from '@heroicons/vue/24/outline';
 import { ref } from 'vue';
+import { router } from '@inertiajs/vue3';
 
 let envelopeOpen = ref(false)
 let showCoupon = ref(false)
 
 function spillCoupon() {
-    console.log('copp');
     envelopeOpen.value = !envelopeOpen
     setTimeout(() => {
         showCoupon.value = true
@@ -18,8 +18,14 @@ function spillCoupon() {
 function copyCodeToClipboard() {
     let redeemcode = document.getElementById('redeem_code')
     console.log(redeemcode.textContent);
-    
+
     navigator.clipboard.writeText(redeemcode.value)
+}
+
+function redirectRedeem() {
+    router.visit(route('checkout.information'), {
+        method: 'GET'
+    })
 }
 
 </script>
@@ -28,27 +34,29 @@ function copyCodeToClipboard() {
     <section class="flex flex-col h-screen">
         <AppHeader class="bg-background border-b border-gray-400 font-cantarell text-gray-400" />
 
-        <div class="w-full bg-background flex flex-grow">
+        <div class="w-full bg-background flex flex-grow p-5">
             <Transition v-if="showCoupon">
-                <div class="w-full lg:w-1/4 m-auto">
+                <div class="md:w-1/2 lg:w-1/4 m-auto">
                     <div class="p-5 bg-[#D9D9D9] flex flex-col gap-4 justify-center items-center rounded-lg">
                         <div class="bg-black w-full h-[200px] rounded-lg"></div>
                         <p class="text-[#63686E]">Giftcard Value</p>
                         <p class="text-xl font-bold tracking-wider">FREE COFFEE BEANS</p>
-    
+
                         <p class="text-[#63686E]">Giftcard Code</p>
-                        <div class="flex flex-row w-full border-dashed border border-[#757575] text-black font-bold p-5 rounded-lg">
+                        <div
+                            class="flex flex-row w-full border-dashed border border-[#757575] text-black font-bold p-5 rounded-lg">
                             <span class="self-center ml-auto" id="redeem_code">
                                 qwertyufghjk23bnnnnngri
                             </span>
-                            <ClipboardIcon @click="copyCodeToClipboard" class="text-[#757575] w-7 h-7 ml-auto"/>
+                            <ClipboardIcon @click="copyCodeToClipboard" class="text-[#757575] w-7 h-7 ml-auto" />
                         </div>
-    
-                        <AsixthBlackButton class="rounded-lg w-full">Redeem My Voucher</AsixthBlackButton>
+
+                        <AsixthBlackButton @click="redirectRedeem" class="rounded-lg w-full">Redeem My Voucher
+                        </AsixthBlackButton>
                     </div>
                 </div>
             </Transition>
-            <div class="flex flex-col justify-center items-center text-center lg:w-1/2 m-auto" v-else>
+            <div class="flex flex-col justify-center items-center text-center md:w-4/5 lg:w-1/2 m-auto" v-else>
                 <div class="envelope-container mt-10 mb-10">
                     <input v-model="envelopeOpen" id="flap" type="checkbox" disabled>
                     <label class="flap" for="flap"></label>
@@ -57,12 +65,12 @@ function copyCodeToClipboard() {
                         <div class="black w-full"></div>
                         <small>Giftcard Value</small>
                         <p>FREE COFFEE BEANS</p>
-    
+
                         <p>Giftcard Code</p>
                         <div>
                             qwertyufghjk23bnnnnngri
                         </div>
-    
+
                         <AsixthBlackButton>Redeem My Voucher</AsixthBlackButton>
                     </div>
                     <div class="card-front"></div>
@@ -71,11 +79,11 @@ function copyCodeToClipboard() {
                 <p class="font-cantarell mb-10">Wow, congratulations! It appears that you've received a delightful surprise
                     from
                     your coffee companions. Let's unveil the contents and prepare to be amazed by what awaits you.</p>
-    
-                <AsixthBlackButton @click="spillCoupon" class="w-[400px] py-4 px-6">Click to reveal the
+
+                <AsixthBlackButton @click="spillCoupon" class="w-full md:w-1/2">Click to reveal the
                     gift</AsixthBlackButton>
             </div>
-    
+
         </div>
     </section>
 </template>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\GiftController;
 use App\Http\Controllers\NotifiedController;
 use App\Http\Controllers\ProfileController;
@@ -36,6 +37,14 @@ Route::group(['prefix' => 'gift'], function() {
 Route::group(['prefix' => 'notified'], function() {
     Route::get('', [NotifiedController::class, 'index'])->name('get-notified.index');
 });
+
+Route::group(['prefix' => 'checkout'], function() {
+    Route::get('information', [CheckoutController::class, 'information'])->name('checkout.information');
+    Route::get('payment', [CheckoutController::class, 'paymentdetails'])->name('checkout.payment.details');
+    Route::get('finish', [CheckoutController::class, 'finish'])->name('checkout.finish');
+});
+
+
 
 Route::get('/profile', [ProfileController::class, 'index'])
     ->middleware('auth')

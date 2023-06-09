@@ -11,24 +11,15 @@ class SearchController extends Controller
 {
     public function index()
     {
-        $products = Product::with(['Items'])->when(request()->has('search'), function($query) {
-            $query->where('name', 'LIKE', '%'.request('search').'%')
-            ->orWhereHas('Items', function($query) {
-                $query->where('name', 'LIKE', '%'.request('search').'%');
-            });
-        })->get();
+        $products = [];
         
-        $productSuggestions = Product::when(request()->has('search'), function($query) {
-            $query->where('name', 'LIKE', '%'.request('search').'%');
-        })->take(5)->get();
+        $productSuggestions = [];
         
-        $seriesSuggestions = ProductItem::when(request()->has('search'), function($query) {
-            $query->where('name', 'LIKE', '%'.request('search').'%');
-        })->take(5)->get();
+        $seriesSuggestions = [];
         
         $suggestions = collect([
-            ...$productSuggestions->toArray(),
-            ...$seriesSuggestions->toArray()
+            ...$productSuggestions,
+            ...$seriesSuggestions
         ]);
 
         

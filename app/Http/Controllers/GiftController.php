@@ -20,7 +20,7 @@ class GiftController extends Controller
             'email' => 'wrong email',
             'code' => 'worng code'
         ]); */
-        $user = User::where('email', request('email'));
+        /* $user = User::where('email', request('email'));
         $emailExists = $user->exists();
         
         if(!$emailExists) {
@@ -35,7 +35,7 @@ class GiftController extends Controller
             return redirect()->back()->withErrors([
                 'code' => 'wrong code'
             ]);
-        }
+        } */
 
         return redirect(route('redeem.index'));
     }
