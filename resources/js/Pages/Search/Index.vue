@@ -12,7 +12,7 @@
                             <p class="font-cantarell text-medium">Where would you like your order sent?</p>
                         </div>
                     </Transition>
-                    <div class="relative mt-10 w-3/5">
+                    <div class="relative mt-10 w-full md:w-3/5">
                         <button @click="search(searchQuery)"
                             :class="`${searchQuery === '' ? 'cursor-not-allowed' : 'cursor-pointer'} absolute inset-y-0 right-0 flex items-center pr-3`"
                             :disabled="searchQuery === ''">

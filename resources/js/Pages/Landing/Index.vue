@@ -10,12 +10,12 @@
             <div class="flex flex-col lg:grid lg:grid-cols-3 gap-2 w-full">
                 <div class="text-center col-start-2">
                     <h1
-                        class="text-[#E1DCC7] text-7xl font-averia mb-4 after:content-['\00AE'] after:text-xl after:absolute after:top-3">
+                        class="text-[#E1DCC7] text-7xl font-averia mb-4 after:content-['\00AE'] after:text-xl after:absolute md:after:top-3">
                         True Specialty</h1>
-                    <p class="text-xl text-white font-cantarell">For those who seek the rare and exceptional</p>
+                    <p class="text-xl text-white font-cantarell p-3 md:p-0">For those who seek the rare and exceptional</p>
                 </div>
                 <button @click="showRedeemForm = true"
-                    class="border border-white text-white hover:bg-white hover:text-black font-bold font-cantarell h-20 w-1/2 m-auto transition hover:duration-100"
+                    class="border border-white text-white hover:bg-white hover:text-black font-bold font-cantarell h-20 w-1/2 mt-6 md:mt-0 m-auto transition hover:duration-100"
                     v-if="!showRedeemForm">
                     Redeem Voucher
                 </button>

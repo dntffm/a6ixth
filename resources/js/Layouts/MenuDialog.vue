@@ -31,13 +31,19 @@
                             <li class="text-3xl py-2 mb-2">Purpose</li>
                         </ul>
                     </li>
+                    
                     <li class="border-b-2 border-white text-5xl py-2 mb-2">About</li>
                     <li class="border-b-2 border-white text-5xl py-2 mb-2">Faces</li>
                     <li class="border-b-2 border-white text-5xl py-2 mb-2">Typology</li>
+                    <li class="border-b-2 border-white text-5xl py-2 mb-2 block md:hidden">
+                        <a :href="route('discover.index')">
+                            Search
+                        </a>
+                    </li>
                 </ul>
             </div>
 
-            <div class="absolute bottom-0 w-[90%]">
+            <div class="absolute bottom-0 w-[90%] right-4">
                 <ul class="flex gap-8 text-white text-sm lg:text-xl font-cantarell border-t border-white py-2">
                     <li>
                         <a href="mailto:communications@asixth.com">
