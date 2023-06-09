@@ -39,9 +39,13 @@
 
             <div class="absolute bottom-0 w-[90%]">
                 <ul class="flex gap-8 text-white text-sm lg:text-xl font-cantarell border-t border-white py-2">
-                    <li>Contact</li>
-                    <li>Careers</li>
-                    <li>Autonomy</li>
+                    <li>
+                        <a href="mailto:communications@asixth.com">
+                            Contact
+                        </a>
+                    </li>
+                    <li> <a href="#">Careers</a></li>
+                    <li> <a href="#">Autonomy</a></li>
                     <li class="after:content-['\00AE']">True Specialty</li>
                 </ul>
             </div>
