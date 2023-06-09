@@ -3,7 +3,8 @@
         <div class="w-full mx-auto px-4 py-3">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 px-4 py-5">
                 <div>
-                    <h2 class="text-white font-bold mb-4 border-white border-b py-3">Subscribe to <span class="font-light">ASIXTH</span></h2>
+                    <h2 class="text-white font-bold mb-4 border-white border-b py-3">Subscribe to <span
+                            class="font-light">ASIXTH</span></h2>
                     <input class="w-full bg-footer mb-3" type="text" name="" id="" placeholder="Email address">
                     <div class="flex gap-2">
                         <input class="bg-footer" type="checkbox" name="" id="">
@@ -15,27 +16,37 @@
                 <div>
                     <h2 class="text-white font-bold mb-4 border-white border-b py-3">Orders and Support</h2>
                     <ul class="text-white">
-                        <li class="mb-3">Contact Us</li>
-                        <li class="mb-3 flex gap-2">Track Order <i><ArrowUpRightIcon class="font-bold h-4 w-4"/></i> </li>
-                        <li class="mb-3 flex gap-2">Shipping  <i><ArrowUpRightIcon class="font-bold h-4 w-4"/></i> </li>
-                        <li class="mb-3 flex gap-2">FAQs  <i><ArrowUpRightIcon class="font-bold h-4 w-4"/></i> </li>
-                        <li class="mb-3">Terms and Conditions</li>
+                        <li class="mb-3 hover:underline">
+                            <a class="" href="mailto:communications@asixth.com">
+                                Contact Us
+                            </a>
+                        </li>
+                        <li class="mb-3 flex gap-2">Track Order <i>
+                                <ArrowUpRightIcon class="font-bold h-4 w-4" />
+                            </i> </li>
+                        <li class="mb-3 flex gap-2">Shipping <i>
+                                <ArrowUpRightIcon class="font-bold h-4 w-4" />
+                            </i> </li>
+                        <li class="mb-3 flex gap-2">FAQs <i>
+                                <ArrowUpRightIcon class="font-bold h-4 w-4" />
+                            </i> </li>
+                        <li class="mb-3 hover:underline"> <a href="#">Terms and Conditions</a></li>
                     </ul>
                 </div>
                 <div>
                     <h2 class="text-white font-bold mb-4 border-white border-b py-3">Services</h2>
                     <ul class="text-white">
-                        <li class="mb-3">Typology</li>
-                        <li class="mb-3">Concierge</li>
-                        <li class="mb-3">Consultations</li>
+                        <li class="mb-3 hover:underline"> <a href="#">Typology</a></li>
+                        <li class="mb-3 hover:underline"> <a href="#">Concierge</a></li>
+                        <li class="mb-3 hover:underline"> <a href="#">Consultations</a></li>
                     </ul>
                 </div>
                 <div>
                     <h2 class="text-white font-bold mb-4 border-white border-b py-3">Enquires</h2>
                     <ul class="text-white">
-                        <li class="mb-3">Press</li>
-                        <li class="mb-3">Autonomy</li>
-                        <li class="mb-3">Suggestions</li>
+                        <li class="mb-3 hover:underline"> <a href="#">Press</a> </li>
+                        <li class="mb-3 hover:underline"> <a href="#">Autonomy</a> </li>
+                        <li class="mb-3 hover:underline"> <a href="#">Suggestions</a> </li>
                     </ul>
                 </div>
 
@@ -47,26 +58,26 @@
                 <div>
                     <h2 class="text-white font-bold mb-4 border-white border-b py-3">About</h2>
                     <ul class="text-white">
-                        <li class="mb-3">Our Story</li>
-                        <li class="mb-3">Careers</li>
-                        <li class="mb-3">Privacy Policy</li>
-                        <li class="mb-3">Cookies Policy</li>
+                        <li class="mb-3 hover:underline"> <a href="#">Our Story</a> </li>
+                        <li class="mb-3 hover:underline"> <a href="#">Careers</a> </li>
+                        <li class="mb-3 hover:underline"> <a href="#">Privacy Policy</a> </li>
+                        <li class="mb-3 hover:underline"> <a href="#">Cookies Policy</a> </li>
                     </ul>
                 </div>
                 <div>
                     <h2 class="text-white font-bold mb-4 border-white border-b py-3">Initiatives</h2>
                     <ul class="text-white">
-                        <li class="mb-3">Let's Collaborate!</li>
-                        <li class="mb-3">ASIXTH Made</li>
-                        <li class="mb-3">Visuals</li>
+                        <li class="mb-3"> <a href="#">Let's Collaborate!</a></li>
+                        <li class="mb-3"> <a href="#">ASIXTH Made</a> </li>
+                        <li class="mb-3"> <a href="#">Visuals</a></li>
                     </ul>
                 </div>
                 <div>
                     <h2 class="text-white font-bold mb-4 border-white border-b py-3">Social Media</h2>
                     <ul class="text-white">
-                        <li class="mb-3">Instagram</li>
-                        <li class="mb-3">Twitter</li>
-                        <li class="mb-3">LinkedIn</li>
+                        <li class="mb-3"> <a href="#">Instagram</a> </li>
+                        <li class="mb-3"> <a href="#">Twitter</a> </li>
+                        <li class="mb-3"> <a href="#">LinkedIn</a></li>
                     </ul>
                 </div>
             </div>

@@ -4,22 +4,22 @@
     <MenuDialog :dark="true" @close="$e => showLeftSideBar = $e" :show="showLeftSideBar"/>
     
     <header v-bind="$attrs">
-        <div class="w-full p-5">
+        <div class="w-full px-5">
             <div class="grid grid-cols-3 px-10 py-5">
                 <button @click="showLeftSideBar = true">
                     <Bars3Icon class="w-7 h-7 " />
                 </button>
                 <a href="/">
-                    <img class="w-[25px] mx-auto" src="/img/a6ixth.png" alt="logo">
+                    <img class="w-[20px] mx-auto" src="/img/a6ixth.png" alt="logo">
                 </a>
                 <div class="justify-center items-center gap-6 ml-auto hidden lg:flex md:flex">
-                    <a :href="route('discover.index')" class=" text-2xl" href="">Search</a>
+                    <a :href="route('discover.index')" class=" text-xl" href="">Search</a>
 
                     <button @click="showAuthBar = true">
-                        <UserIcon class="w-7 h-7 " />
+                        <img src="/icon/auth-dark.png" class="w-5 " />
                     </button>
                     <button @click="showCartBar = true">
-                        <img src="/icon/cart-dark.png" class="w-6 " />
+                        <img src="/icon/cart-dark.png" class="w-5 " />
                     </button>
 
                 </div>
