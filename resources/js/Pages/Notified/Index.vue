@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="w-1/2 relative bg-[#F8F3DF] hidden lg:flex lg:justify-center lg:items-center">
-                <img src="/img/ahaus-upgrade.png" alt="Ahaus Truck" class="absolute right-0">
+                <img src="/img/ahaus-upgrade.png" alt="Ahaus Truck" class="absolute right-0 w-3/5">
             </div>
         </div>
     </section>

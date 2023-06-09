@@ -12,7 +12,7 @@
                 <a href="/">
                     <img class="w-[20px] mx-auto" src="img/a6ixth-white.png" alt="logo">
                 </a>
-                <div class="justify-center items-center gap-6 ml-auto hidden lg:flex md:flex">
+                <div class="justify-center items-center gap-7 ml-auto hidden lg:flex md:flex">
                     <a :href="route('discover.index')" class=" text-xl" href="">Search</a>
 
                     <button @click="showAuthBar = true">

@@ -4,7 +4,7 @@
             v-if="showRedeemForm"></div>
         <AppHeaderTransparent class="fixed bg-transparent w-full text-white font-cantarell" />
 
-        <img src="/img/coffee-1.jpeg" alt="" class="w-full h-screen object-cover">
+        <img :src="images[activeImage]" alt="" class="w-full h-screen object-cover transition duration-300">
 
         <div class="absolute bottom-36 w-full">
             <div class="flex flex-col lg:grid lg:grid-cols-3 gap-2 w-full">
@@ -62,8 +62,19 @@ export default {
             showAuthBar: false,
             showRedeemForm: false,
             emailRedeem: '',
-            redeemCode: ''
+            redeemCode: '',
+            activeImage: 0,
+            images: [
+                '/img/coffee-1.jpeg',
+                '/img/coffee-2.jpeg',
+                '/img/coffee-3.jpeg',
+            ]
         }
+    },
+    created() {
+        setInterval(() => {
+            this.activeImage = (this.activeImage + 1) % this.images.length
+        }, 30000);
     },
     methods: {
         redeem() {
