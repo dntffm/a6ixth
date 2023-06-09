@@ -8,11 +8,11 @@
             <div class="mt-10 mb-10">
                 <h2 class="text-4xl mb-4">Create Your Account</h2>
                 <p class="text-xl font-cantarell mb-4">We’ll send you a magic link to login in via email</p>
-                <input v-model="email" class="w-full bg-background border-black mb-4 text-xl p-4 font-cantarell" type="text" name="" id=""
+                <input v-model="email" class="w-full bg-background border-black mb-4 text-xl p-4 font-cantarell focus:ring-offset-black focus:ring-black focus:border-black" type="text" name="" id=""
                     placeholder="Email address" />
                 <button
                     @click="login"
-                    class="bg-black border border-black text-white hover:bg-white hover:text-black font-bold font-cantarell h-16 w-1/3 m-auto transition hover:duration-100">
+                    class="bg-black border border-black text-white hover:bg-white hover:text-black font-bold font-cantarell h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
                     Continue
                 </button>
 

@@ -67,17 +67,17 @@
                 <div>
                     <h2 class="text-white font-bold mb-4 border-white border-b py-3">Initiatives</h2>
                     <ul class="text-white">
-                        <li class="mb-3"> <a href="#">Let's Collaborate!</a></li>
-                        <li class="mb-3"> <a href="#">ASIXTH Made</a> </li>
-                        <li class="mb-3"> <a href="#">Visuals</a></li>
+                        <li class="mb-3 hover:underline"> <a href="#">Let's Collaborate!</a></li>
+                        <li class="mb-3 hover:underline"> <a href="#">ASIXTH Made</a> </li>
+                        <li class="mb-3 hover:underline"> <a href="#">Visuals</a></li>
                     </ul>
                 </div>
                 <div>
                     <h2 class="text-white font-bold mb-4 border-white border-b py-3">Social Media</h2>
                     <ul class="text-white">
-                        <li class="mb-3"> <a href="#">Instagram</a> </li>
-                        <li class="mb-3"> <a href="#">Twitter</a> </li>
-                        <li class="mb-3"> <a href="#">LinkedIn</a></li>
+                        <li class="mb-3 hover:underline"> <a href="#">Instagram</a> </li>
+                        <li class="mb-3 hover:underline"> <a href="#">Twitter</a> </li>
+                        <li class="mb-3 hover:underline"> <a href="#">LinkedIn</a></li>
                     </ul>
                 </div>
             </div>

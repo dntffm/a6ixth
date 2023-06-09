@@ -2,7 +2,7 @@
     <!-- Menu sidebar -->
     <aside
         :class="`${dark ? 'bg-[#1E1E1E] text-white' : 'bg-black/40 backdrop-blur-md'} h-screen overflow-y-hidden w-full lg:w-1/2 fixed top-0 ${show ? 'left-0' : '-left-full lg:-left-1/2'} z-50 duration-300 p-5`">
-        <div class="px-10 py-7 flex flex-col justify-between w-full">
+        <div class="px-3 md:px-10 py-7 flex flex-col justify-between w-full">
             <button @click="$emit('close', false)">
                 <XMarkIcon class="w-7 h-7 text-white" />
             </button>

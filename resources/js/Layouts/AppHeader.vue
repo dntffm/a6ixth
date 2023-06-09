@@ -5,14 +5,14 @@
     
     <header v-bind="$attrs">
         <div class="w-full px-5">
-            <div class="grid grid-cols-3 px-10 py-4">
+            <div class="grid grid-cols-3 px-4 md:px-10 py-4">
                 <button @click="showLeftSideBar = true">
                     <Bars3Icon class="w-7 h-7 " />
                 </button>
                 <a href="/">
                     <img class="w-[20px] mx-auto" src="/img/a6ixth.png" alt="logo">
                 </a>
-                <div class="justify-center items-center gap-7 ml-auto hidden lg:flex md:flex">
+                <div class="justify-center items-center gap-2 md:gap-7 ml-auto flex">
                     <a :href="route('discover.index')" class="text-medium" href="">Search</a>
 
                     <button @click="showAuthBar = true">

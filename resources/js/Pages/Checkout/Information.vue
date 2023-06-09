@@ -5,7 +5,8 @@
         <div class="flex flex-grow">
             <div class="w-3/4 bg-background">
                 <div class="pl-10 pr-16 py-10 font-cantarell">
-                    <h1 class="font-neuton text-6xl text-black">Check out with <span class="font-bebas font-bold">ASIXTH</span></h1>
+                    <h1 class="font-neuton text-6xl text-black">Check out with <span
+                            class="font-bebas font-bold">ASIXTH</span></h1>
                     <p class="my-5">
                         Where would you like your order sent?
                     </p>
@@ -45,11 +46,20 @@
                         </div>
                     </div>
 
-                    <AsixthBlackButton class="w-1/2">Continue to shipping details</AsixthBlackButton>
+                    <AsixthBlackButton @click="nextPage" class="w-1/2">Continue to shipping details</AsixthBlackButton>
                 </div>
             </div>
             <div class="w-1/2 bg-[#F8F3DF] flex justify-center items-center">
-                <img src="/img/ahaus.png" alt="Ahaus Truck">
+                <div class="relative w-full lg:w-1/2">
+                    <div class="p-5">
+                        <img class="w-full m-auto mb-3" src="/img/sample-product.png" alt="product">
+                        <p class="font-neuton text-2xl mb-2">Series No. 000</p>
+                        <p class="font-cantarell text-gray-600">Thanks for attending our AHAUS launch
+                            Enjoy this crafted gift of 10oz coffee on us</p>
+                    </div>
+                    <button
+                            class="absolute bg-black w-full text-white font-cantarell font-bold p-5">FREE</button>
+                </div>
             </div>
         </div>
     </section>
@@ -58,5 +68,10 @@
 <script setup>
 import AppHeader from '../../Layouts/AppHeader.vue';
 import AsixthBlackButton from '../../Components/AsixthBlackButton.vue'
+import { router } from '@inertiajs/vue3';
+
+function nextPage() {
+    router.get(route('checkout.payment.details'))
+}
 
 </script>

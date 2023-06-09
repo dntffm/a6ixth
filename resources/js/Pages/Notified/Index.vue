@@ -6,9 +6,9 @@
             <div class="w-screen lg:w-1/2 bg-background">
                 <div class="w-4/5 pl-10 md:pr-16 py-10 font-cantarell">
                     <h1 class="font-averia text-6xl text-[#706B59] mb-5">AHAUS TRUCK</h1>
-                    <input v-model="email" class="w-full bg-background border-black mb-4 text-xl p-4 font-cantarell" type="text"
+                    <input v-model="email" class="w-full bg-background border-black mb-4 text-xl p-4 font-cantarell focus:ring-offset-black focus:ring-black focus:border-black" type="text"
                         name="" id="" placeholder="Enter Your Name" />
-                    <input v-model="email" class="w-full bg-background border-black mb-4 text-xl p-4 font-cantarell " type="text"
+                    <input v-model="email" class="w-full bg-background border-black mb-4 text-xl p-4 font-cantarell focus:ring-offset-black focus:ring-black focus:border-black" type="text"
                         name="" id="" placeholder="Enter Your Email" />
                     <p class="text-sm text-black my-4 before:content['*']">*By completing this form you are signing up to
                         receive ASIXTH
