@@ -15,7 +15,7 @@
                     <p class="text-xl text-white font-cantarell p-3 md:p-0">For those who seek the rare and exceptional</p>
                 </div>
                 <button @click="showRedeemForm = true"
-                    class="border border-white text-white hover:bg-white hover:text-black font-bold font-cantarell h-20 w-1/2 mt-6 md:mt-0 m-auto transition hover:duration-100"
+                    class="border border-white text-white hover:bg-white hover:text-black font-bold font-cantarell h-20 w-1/2 mt-6 md:mt-4 m-auto transition hover:duration-100"
                     v-if="!showRedeemForm">
                     Redeem Voucher
                 </button>

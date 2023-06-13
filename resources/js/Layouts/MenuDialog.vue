@@ -44,7 +44,7 @@
             </div>
 
             <div class="absolute bottom-0 w-[90%] right-4">
-                <ul class="flex gap-8 text-white text-sm lg:text-xl font-cantarell border-t border-white py-2">
+                <ul class="flex gap-8 text-white text-sm lg:text-base font-cantarell border-t border-white py-2">
                     <li>
                         <a href="mailto:communications@asixth.com">
                             Contact
@@ -53,6 +53,7 @@
                     <li> <a href="#">Careers</a></li>
                     <li> <a href="#">Autonomy</a></li>
                     <li class="after:content-['\00AE']">True Specialty</li>
+                    <li> <a href="#">FAQs</a></li>
                 </ul>
             </div>
         </div>
