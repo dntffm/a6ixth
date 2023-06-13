@@ -8,7 +8,7 @@
             <div class="mt-10 mb-10">
                 <h2 class="text-4xl mb-4">Create Your Account</h2>
                 <p class="text-xl font-cantarell mb-4">We’ll send you a magic link to login in via email</p>
-                <input v-model="email" :class="`${dark ? 'text-black' : 'text-white'} w-full bg-background border-black mb-4 text-xl p-4 font-cantarell focus:ring-offset-black focus:ring-black focus:border-black`" type="text" name="" id=""
+                <input v-model="email" :class="`${dark ? 'text-black' : 'text-black'} w-full bg-background border-black mb-4 text-xl p-4 font-cantarell focus:ring-offset-black focus:ring-black focus:border-black`" type="text" name="" id=""
                     placeholder="Email address" />
                 <button
                     @click="login"
@@ -61,6 +61,9 @@ function login() {
     
     form.post(route('login'), {
         onSuccess: () => {
+            email.value = ''
+            alert('Magic link has been send to your email, check your inbox')
+            this.$swal.fire('Magic link has been send to your email, check your inbox');
             console.log('Success');
         }
     })
