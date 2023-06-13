@@ -13,7 +13,7 @@ class AuthController
         $client = new Client();
 
         try {
-            /* $response = $client->post('https://dev-8o7tvvfvkg4dnr0d.us.auth0.com/passwordless/start', [
+            $response = $client->post('https://dev-8o7tvvfvkg4dnr0d.us.auth0.com/passwordless/start', [
                 'headers' => [
                     'Content-Type' => 'application/json',
                 ],
@@ -21,11 +21,11 @@ class AuthController
                     'client_id' => 'umlULU9rBp210tigwCLFZvKm699Ze4jU',
                     'client_secret' =>  env('AUTH0_CLIENT_SECRET'),
                     'connection' => 'email',
-                    'email' => 'dentamaulan88@gmail.com',
+                    'email' => request('email'),
                     'send' => 'link',
                 ],
-            ]); */
-        
+            ]);
+            
             return redirect()->back()->with('success', 'mantap');
         } catch (\Exception $e) {
             echo "Guzzle Error: " . $e->getMessage();

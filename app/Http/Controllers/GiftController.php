@@ -20,17 +20,17 @@ class GiftController extends Controller
             'email' => 'wrong email',
             'code' => 'worng code'
         ]); */
-        $user = User::where('email', request('email'));
+        /* $user = User::where('email', request('email'));
         $emailExists = $user->exists();
         
         if(!$emailExists) {
             return redirect()->back()->withErrors([
                 'email' => 'wrong email'
             ]);
-        }
+        } */
 
-        $validCode = explode('-', $user->first()->id)[0] === request('code');
-        
+        // $validCode = explode('-', $user->first()->id)[0] === request('code');
+        $validCode = true;
         if(!$validCode) {
             return redirect()->back()->withErrors([
                 'code' => 'wrong code'

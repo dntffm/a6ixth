@@ -1,6 +1,6 @@
 <template>
     <!-- Auth sidebar -->
-    <aside :class="`${dark ? 'bg-[#1E1E1E] text-white' : 'bg-background text-black'} w-full lg:w-1/2 h-screen fixed top-0 ${show ? 'right-0' : '-right-full lg:-right-1/2'} z-50 font-neuton duration-300 p-5`">
+    <aside :class="`${dark ? 'bg-[#1E1E1E] text-white' : 'bg-background text-black'} w-full lg:w-1/3 h-screen fixed top-0 ${show ? 'right-0' : '-right-full lg:-right-1/2'} z-50 font-neuton duration-300 p-5`">
         <div class="px-10 py-10">
             <button @click="$emit('close', false)">
                 <XMarkIcon class="w-7 h-7 " />
@@ -8,7 +8,7 @@
             <div class="mt-10 mb-10">
                 <h2 class="text-4xl mb-4">Create Your Account</h2>
                 <p class="text-xl font-cantarell mb-4">We’ll send you a magic link to login in via email</p>
-                <input v-model="email" class="w-full bg-background border-black mb-4 text-xl p-4 font-cantarell focus:ring-offset-black focus:ring-black focus:border-black" type="text" name="" id=""
+                <input v-model="email" :class="`${dark ? 'text-black' : 'text-white'} w-full bg-background border-black mb-4 text-xl p-4 font-cantarell focus:ring-offset-black focus:ring-black focus:border-black`" type="text" name="" id=""
                     placeholder="Email address" />
                 <button
                     @click="login"
@@ -61,7 +61,7 @@ function login() {
     
     form.post(route('login'), {
         onSuccess: () => {
-            console.log();
+            console.log('Success');
         }
     })
     
