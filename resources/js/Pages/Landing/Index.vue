@@ -2,9 +2,9 @@
     <main class="w-full h-screen">
         <div class="w-screen h-screen bg-black/60 z-20 absolute transition duration-150" @click="showRedeemForm = false"
             v-if="showRedeemForm"></div>
-        <AppHeaderTransparent class="fixed bg-transparent w-full text-white font-cantarell" />
+        <AppHeaderTransparent class="fixed bg-transparent w-full text-white font-cantarell z-50" />
 
-        <img :src="images[activeImage]" alt="" class="w-full h-screen object-cover transition duration-300">
+        <img :src="images[activeImage]" alt="" class="w-full h-screen object-cover transition duration-300 brightness-75">
 
         <div class="absolute bottom-36 w-full">
             <div class="flex flex-col lg:grid lg:grid-cols-3 gap-2 w-full">
