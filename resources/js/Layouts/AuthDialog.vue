@@ -1,17 +1,20 @@
 <template>
     <!-- Auth sidebar -->
-    <aside :class="`${dark ? 'bg-[#1E1E1E] text-white' : 'bg-background text-black'} w-full lg:w-1/3 h-screen fixed top-0 ${show ? 'right-0' : '-right-full lg:-right-1/2'} z-50 font-neuton duration-300 p-5`">
-        <div class="px-10 py-10">
+    <aside
+        :class="`${dark ? 'bg-[#1E1E1E] text-white' : 'bg-black/40 backdrop-blur-md text-white'} w-full lg:w-1/3 h-screen fixed top-0 ${show ? 'right-0' : '-right-full lg:-right-1/2'} z-50 font-neuton duration-300 p-5`">
+        <div class="md:px-10 md:py-10" v-if="menu === 'phone' && $page.props.user == null">
             <button @click="$emit('close', false)">
                 <XMarkIcon class="w-7 h-7 " />
             </button>
             <div class="mt-10 mb-10">
                 <h2 class="text-4xl mb-4">Create Your Account</h2>
-                <p class="text-xl font-cantarell mb-4">We’ll send you a magic link to login in via email</p>
-                <input v-model="email" :class="`${dark ? 'text-black' : 'text-black'} w-full bg-background border-black mb-4 text-xl p-4 font-cantarell focus:ring-offset-black focus:ring-black focus:border-black`" type="text" name="" id=""
-                    placeholder="Email address" />
-                <button
-                    @click="login"
+                <p class="text-xl font-cantarell mb-4">We’ll send you magic code to login in via phone</p>
+
+
+                <input v-model="phone_number"
+                    :class="`${dark ? 'text-black' : 'text-black'} w-full bg-background border-black mb-4 text-xl p-4 font-cantarell focus:ring-offset-black focus:ring-black focus:border-black`"
+                    type="text" name="" id="" placeholder="Phone number" />
+                <button @click="login"
                     class="bg-black border border-black text-white hover:bg-white hover:text-black font-bold font-cantarell h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
                     Continue
                 </button>
@@ -20,8 +23,8 @@
 
             <div>
                 <h3 class="font-neuton text-2xl mb-4">What About a Password?</h3>
-                <p class="font-cantarell text-sm">We don't believe in passwords. Enter your email address and we'll email
-                    you a magic link. Click that link from any device and you'll be logged in.</p>
+                <p class="font-cantarell text-sm">Enter your phone number and we'll text you a magic code.
+                    Use a phone number you have access to securely.</p>
             </div>
 
             <div class="my-8">
@@ -29,8 +32,37 @@
             </div>
             <div>
                 <h3 class="font-neuton text-2xl mb-4">Already Have an Account ?</h3>
-                <p class="font-cantarell text-sm">No problem. Provide your email address above and click the magic link that
-                    we'll send to your email - you'll be logged into your account.</p>
+                <p class="font-cantarell text-sm">Provide your phone number above and enter the magic code that
+                    we'll send to your device- you'll be logged into your new account.</p>
+            </div>
+        </div>
+        <div class="md:px-10 md:py-10" v-if="menu === 'otp' && $page.props.user == null">
+            <button @click="$emit('close', false)">
+                <XMarkIcon class="w-7 h-7 " />
+            </button>
+            <div class="mt-10 mb-10">
+                <h2 class="text-4xl mb-4">Confirm your magic code</h2>
+                <p class="text-base font-cantarell mb-4">We've texted a magic code to {{ phone_number }}
+                    Enter the code we've sent to your device to login or signup.</p>
+
+                <div class="grid grid-cols-6 gap-2">
+                    <input v-for="i in 6" @input="handleOTPForm($event, i)"
+                        :class="`${dark ? 'text-black' : 'text-black'} w-full bg-background border-black mb-4 text-xl p-4 font-cantarell focus:ring-offset-black focus:ring-black focus:border-black rounded-md text-center`"
+                        type="number" :id="'otp-' + i" min="0" max="9" />
+                </div>
+                <button @click="exchange"
+                    class="bg-black border border-black text-white hover:bg-white hover:text-black font-bold font-cantarell h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
+                    Verify now
+                </button>
+            </div>
+        </div>
+        <div class="md:px-10 md:py-10" v-if="$page.props.user != null">
+            <button @click="$emit('close', false)">
+                <XMarkIcon class="w-7 h-7 " />
+            </button>
+            <div class="mt-10 mb-10">
+                <h2 class="text-4xl mb-4">Hello, <br/>{{ $page.props.user.nickname }}</h2>
+                <a :href="route('logout')" class="text-base font-cantarell mb-4 underline text-red-600">logout</a>
             </div>
         </div>
     </aside>
@@ -42,6 +74,9 @@ import { ref } from 'vue';
 import { useForm } from '@inertiajs/vue3';
 
 let email = ref('')
+let phone_number = ref('')
+let otp = ref([])
+let menu = ref('phone')
 
 defineProps({
     dark: {
@@ -54,19 +89,64 @@ defineProps({
     }
 })
 
+function handleOTPForm(e, i) {
+    otp.value[i] = e.data
+    const curr = document.getElementById(`otp-${i}`)
+    curr.value = e.data
+
+    if (i > 0 && i < 6) {
+        const next = document.getElementById(`otp-${i + 1}`)
+
+        next.focus()
+    }
+}
+
 function login() {
     const form = useForm({
-        email: email.value
+        //email: email.value,
+        phone_number: phone_number.value,
     })
-    
+
     form.post(route('login'), {
         onSuccess: () => {
-            email.value = ''
-            alert('Magic link has been send to your email, check your inbox')
-            this.$swal.fire('Magic link has been send to your email, check your inbox');
-            console.log('Success');
+            //email.value = ''
+            menu.value = 'otp'
         }
     })
-    
+}
+
+function exchange() {
+    const form = useForm({
+        phone_number: phone_number.value,
+        code: otp.value.join('')
+    })
+
+    if (form.code.length < 6) {
+        for (let index = 1; index <= 6; index++) {
+            if (!otp.value[index]) {
+                const elem = document.getElementById(`otp-${index}`)
+                console.log(elem);
+                elem.focus()
+                break
+            }
+        }
+    } else {
+        form.post(route('exchange'))
+    }
 }
 </script>
+
+<style>
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    /* Firefox */
+}
+</style>

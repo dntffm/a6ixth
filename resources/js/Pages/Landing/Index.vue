@@ -1,6 +1,6 @@
 <template>
     <main class="w-full h-screen">
-        <div class="w-screen h-screen bg-black/60 z-20 absolute transition duration-150" @click="showRedeemForm = false"
+        <div class="w-screen h-screen bg-black/60 backdrop-blur-md z-20 absolute transition duration-150" @click="showRedeemForm = false"
             v-if="showRedeemForm"></div>
         <AppHeaderTransparent class="fixed bg-transparent w-full text-white font-cantarell z-10" />
 
@@ -10,7 +10,7 @@
             <div class="flex flex-col lg:grid lg:grid-cols-3 gap-2 w-full">
                 <div class="text-center col-start-2">
                     <h1
-                        class="text-[#E1DCC7] text-7xl font-averia mb-4 after:content-['\00AE'] after:text-xl after:absolute md:after:top-3">
+                        class="text-[#E1DCC7] text-7xl font-averia mb-4 after:content-['\00AE'] after:text-xl after:absolute md:after:top-5">
                         True Specialty</h1>
                     <p class="text-xl text-white font-cantarell p-3 md:p-0">For those who seek the rare and exceptional</p>
                 </div>
@@ -26,15 +26,14 @@
                 v-if="showRedeemForm">
                 <input v-model="redeemCode"
                     :class="`w-full ${$attrs.errors.code ? 'border-red-500 text-red-500 placeholder-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white text-white placeholder-white focus:ring-offset-white focus:ring-white focus:border-white'} mb-4 text-xl p-4 font-cantarell bg-transparent`"
-                    type="text" name="" id="" placeholder="Enter Your Code" />
+                    type="text" name="" id="" placeholder="Enter Your Name" />
                 <input v-model="emailRedeem"
                     :class="`w-full ${$attrs.errors.email ? 'border-red-500 text-red-500 placeholder-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white text-white placeholder-white focus:ring-offset-white focus:ring-white focus:border-white'} mb-4 text-xl p-4 font-cantarell bg-transparent`"
                     type="text" name="" id="" placeholder="Enter Your Email" />
-                <p class="text-sm text-white my-4 before:content['*']">*Only members who visited our truck are able to
-                    access further.
-                    Get notified on our next AHAUS location launch <a class="underline" :href="route('get-notified.index')">here</a></p>
-                <button @click.prevent="redeem"
-                    class="bg-black text-white hover:bg-white hover:text-black font-bold font-cantarell h-20 w-1/2 m-auto transition hover:duration-100">Submit</button>
+                <p class="text-sm text-white my-4 before:content['*']">*By completing this form you are signing up to receive ASIXTH
+related emails, and can unsubscribe at any time.</p>
+                <button
+                    class="bg-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-20 w-1/2 m-auto transition hover:duration-100">Gain Full Access</button>
             </section>
         </Transition>
 

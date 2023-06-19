@@ -2,14 +2,14 @@
     <!-- Menu sidebar -->
     <aside
         :class="`${dark ? 'bg-[#1E1E1E] text-white' : 'bg-black/40 backdrop-blur-md'} h-screen overflow-y-hidden w-full lg:w-1/3 fixed top-0 ${show ? 'left-0' : '-left-full lg:-left-1/2'} z-50 duration-300 p-5`">
-        <div class="px-3 md:px-10 py-7 flex flex-col justify-between w-full">
+        <div class="px-3 md:px-10 pt-7 flex flex-col justify-between w-full h-full">
             <button @click="$emit('close', false)">
                 <XMarkIcon class="w-7 h-7 text-white" />
             </button>
-            <div class="mt-8">
-                <ul class="font-neuton text-white">
+            <div class="mt-8 flex flex-col h-full justify-between">
+                <ul class="font-neuton text-[#FFFEF2]/50">
                     <li class="text-5xl mb-2 cursor-pointer" @click="toggleChildMenu">
-                        <div class="relative menu-header pb-4 border-b-2 border-white">
+                        <div :class="`relative menu-header pb-4 border-b-2 ${active ? 'text-white border-white' : 'border-[#FFFEF2]/50 text-[#FFFEF2]/50'} hover:text-white hover:border-white`">
                             <span>Shop</span>
                             <span class="absolute right-0 bottom-2">
                                 <svg v-if="active" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -32,30 +32,31 @@
                         </ul>
                     </li>
                     
-                    <li class="border-b-2 border-white text-5xl py-2 mb-2">About</li>
-                    <li class="border-b-2 border-white text-5xl py-2 mb-2">Faces</li>
-                    <li class="border-b-2 border-white text-5xl py-2 mb-2">Typology</li>
-                    <li class="border-b-2 border-white text-5xl py-2 mb-2 block md:hidden">
+                    <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-5xl py-2 mb-2">About</li>
+                    <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-5xl py-2 mb-2">Faces</li>
+                    <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-5xl py-2 mb-2">Typology</li>
+                    <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-5xl py-2 mb-2 block md:hidden">
                         <a :href="route('discover.index')">
                             Search
                         </a>
                     </li>
+
                 </ul>
+                <div class="w-full">
+                    <ul class="flex gap-4 md:gap-8 text-white text-xs lg:text-sm font-cantarell border-t border-white py-2">
+                        <li>
+                            <a href="mailto:communications@asixth.com">
+                                Contact
+                            </a>
+                        </li>
+                        <li> <a href="#">Careers</a></li>
+                        <li> <a href="#">Autonomy</a></li>
+                        <li class="after:content-['\00AE'] after:top-[2px] after:absolute relative">True Specialty</li>
+                        <li> <a href="#">FAQs</a></li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="absolute bottom-0 w-[90%] right-4">
-                <ul class="flex gap-8 text-white text-sm lg:text-base font-cantarell border-t border-white py-2">
-                    <li>
-                        <a href="mailto:communications@asixth.com">
-                            Contact
-                        </a>
-                    </li>
-                    <li> <a href="#">Careers</a></li>
-                    <li> <a href="#">Autonomy</a></li>
-                    <li class="after:content-['\00AE']">True Specialty</li>
-                    <li> <a href="#">FAQs</a></li>
-                </ul>
-            </div>
         </div>
     </aside>
 </template>
@@ -79,9 +80,10 @@ let active = ref(false)
 
 function toggleChildMenu(e) {
     active.value = !active.value
-    const menuItem = e.target.parentElement.parentElement.querySelector('.menu-item')
+    const menuItem = document.getElementsByClassName('menu-item')[0]
+    console.log(menuItem);
     menuItem.classList.toggle('hidden')
-    console.log();
+    
 }
 
 </script>

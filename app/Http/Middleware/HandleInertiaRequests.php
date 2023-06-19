@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Inertia\Middleware;
 use Tightenco\Ziggy\Ziggy;
 
@@ -30,21 +31,23 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
-        $auth0 = new \Auth0\SDK\Auth0([
-            'domain' => env('AUTH0_DOMAIN'),
-            'clientId' => env('AUTH0_CLIENT_ID'),
-            'clientSecret' => env('AUTH0_CLIENT_SECRET'),
-            'cookieSecret' => env('APP_KEY')
-        ]);
-
         return array_merge(parent::share($request), [
             'ziggy' => function () use ($request) {
                 return array_merge((new Ziggy)->toArray(), [
                     'location' => $request->url(),
                 ]);
             },
-            'user' => function () use($auth0){
-                return $auth0->getCredentials() ? $auth0->getCredentials()->user : null;
+            'user' => function () {
+                if(Session::get('user')) {
+                    $token = json_decode(Session::get('user'))->id_token;
+                    $tokenParts = explode(".", $token);  
+                    $tokenPayload = base64_decode($tokenParts[1]);
+                    $jwtPayload = json_decode($tokenPayload);
+
+                    return $jwtPayload;
+                } else {
+                    return null;
+                }
             },
         ]);
     }

@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 
 /*
@@ -51,6 +52,7 @@ Route::get('/profile', [ProfileController::class, 'index'])
     ->name('profile');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/exchange', [AuthController::class, 'exchange'])->name('exchange');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/callback', [AuthController::class, 'callback'])->name('callback');
 Route::get('/signup', [AuthController::class, 'signup'])->name('signup');
