@@ -35,7 +35,7 @@
                     <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-5xl py-2 mb-2"><a href="">About</a></li>
                     <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-5xl py-2 mb-2"><a href="">Faces</a></li>
                     <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-5xl py-2 mb-2"><a href="">Typology</a></li>
-                    <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-5xl py-2 mb-2"><a href="">Autonomy</a></li>
+                    <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-5xl py-2 mb-2"><a href="">True Specialty</a></li>
                     <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-5xl py-2 mb-2 block md:hidden">
                         <a :href="route('discover.index')">
                             Search
@@ -51,8 +51,8 @@
                             </a>
                         </li>
                         <li class="text-[#FFFEF2]/50 hover:text-white "> <a href="#">Careers</a></li>
-                        <!-- <li class="text-[#FFFEF2]/50 hover:text-white "> <a href="#">Autonomy</a></li> -->
-                        <li class="text-[#FFFEF2]/50 hover:text-white"><a href="">True Specialty</a></li>
+                        <li class="text-[#FFFEF2]/50 hover:text-white "> <a href="#">Autonomy</a></li>
+                        <!-- <li class="text-[#FFFEF2]/50 hover:text-white"><a href="">True Specialty</a></li> -->
                         <li class="text-[#FFFEF2]/50 hover:text-white "> <a href="#">FAQs</a></li>
                     </ul>
                 </div>
