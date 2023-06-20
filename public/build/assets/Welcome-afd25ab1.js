@@ -1,1 +1,0 @@
-import{B as o}from"./BaseLayout-24317661.js";import{_ as t}from"./_plugin-vue_export-helper-c27b6911.js";import{o as e,f as r}from"./app-53cdaa51.js";import"./AppHeader-535ead2c.js";import"./CartDialog-b45f6f6d.js";const a={layout:o};function s(c,n,p,m,f,_){return e(),r("h1",null,"HOME")}const $=t(a,[["render",s]]);export{$ as default};

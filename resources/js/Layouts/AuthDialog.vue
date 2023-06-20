@@ -14,7 +14,7 @@
                     <select v-model="country_code"
                         class="bg-transparent text-white placeholder-white w-1/4 border-white mb-4 text-xl p-4 font-cantarell focus:ring-offset-white focus:ring-white focus:border-white"
                         name="" id="">
-                        <option value="+1">+1</option>
+                        <option value="+1" selected="selected">+1</option>
                         <option value="+62">+62</option>
                     </select>
                     <input v-model="phone_number"
@@ -43,7 +43,7 @@
                     we'll send to your device- you'll be logged into your new account.</p>
             </div>
         </div>
-        <div class="md:px-10 md:py-10" v-if="menu === 'otp' && $page.props.user == null">
+        <div class="md:px-10 md:py-10" v-else-if="menu === 'otp' && $page.props.user == null">
             <button @click="$emit('close', false)">
                 <XMarkIcon class="w-7 h-7 " />
             </button>
@@ -63,7 +63,7 @@
                 </button>
             </div>
         </div>
-        <div class="md:px-10 md:py-10" v-if="menu === 'name' && $page.props.user == null">
+        <div class="md:px-10 md:py-10" v-else-if="menu === 'name' && $page.props.user != null">
             <button @click="$emit('close', false)">
                 <XMarkIcon class="w-7 h-7 " />
             </button>
@@ -75,18 +75,18 @@
                 <input v-model="name"
                     :class="`${dark ? 'text-white' : 'text-white placeholder-white'} w-full bg-transparent border-white mb-4 text-xl p-4 font-cantarell focus:ring-offset-white focus:ring-white focus:border-white`"
                     type="text" name="" id="" placeholder="Enter your name" />
-                <button @click=""
+                <button @click="setupProfile"
                     class="bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
                     Let's Go
                 </button>
             </div>
         </div>
-        <div class="md:px-10 md:py-10" v-if="$page.props.user != null">
+        <div class="md:px-10 md:py-10" v-else>
             <button @click="$emit('close', false)">
                 <XMarkIcon class="w-7 h-7 " />
             </button>
             <div class="mt-10 mb-10">
-                <h2 class="text-4xl mb-4">Hello, <br />{{ $page.props.user.nickname }}</h2>
+                <h2 class="text-4xl mb-4">Hello, <br />{{ profileName }}</h2>
                 <a :href="route('logout')" class="text-base font-cantarell mb-4 underline text-red-600">logout</a>
             </div>
         </div>
@@ -107,10 +107,10 @@ import { useForm } from '@inertiajs/vue3';
 let email = ref('')
 let phone_number = ref('')
 let otp = ref([])
-let menu = ref('otp')
-let country_code = ref('')
+let menu = ref('phone')
+let country_code = ref('+1')
 let name = ref('')
-
+let profileName = localStorage.getItem('name') || this.$page.props.user.nickname
 defineProps({
     dark: {
         type: Boolean,
@@ -139,7 +139,7 @@ function login() {
         //email: email.value,
         phone_number: country_code.value + '' + phone_number.value,
     })
-
+    console.log(form);
     form.post(route('login'), {
         onSuccess: () => {
             //email.value = ''
@@ -164,8 +164,18 @@ function exchange() {
             }
         }
     } else {
-        form.post(route('exchange'))
+        form.post(route('exchange'), {
+            onSuccess: () => {
+                if(!localStorage.getItem('name')) menu.value = 'name'
+                else menu.value = null
+            }
+        })
     }
+}
+
+function setupProfile() {
+    localStorage.setItem('name', name.value)
+    menu.value = null
 }
 </script>
 

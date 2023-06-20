@@ -67,6 +67,38 @@ class AuthController
         }
     }
 
+    public function setupName()
+    {
+        
+        $client = new Client();
+
+        try {
+            $response = $client->request('POST', 'https://dev-8o7tvvfvkg4dnr0d.us.auth0.com/oauth/token', [
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                ],
+                'json' => [
+                    'grant_type' => 'http://auth0.com/oauth/grant-type/passwordless/otp',
+                    'client_id' => 'umlULU9rBp210tigwCLFZvKm699Ze4jU',
+                    'client_secret' => env('AUTH0_CLIENT_SECRET'),
+                    'username' => request('phone_number'),
+                    'otp' => request('code'),
+                    'realm' => 'sms',
+                    //'audience' => 'your-api-audience',
+                    'scope' => 'openid profile email',
+                ],
+            ]);
+
+            $authResponse = $response->getBody()->getContents();
+            
+            Session::put('user', $authResponse);
+
+            return redirect()->back()->with('success', true);
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
+
     public function logout()
     {
         Session::put('user', null);
