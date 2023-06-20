@@ -52,7 +52,7 @@
                         </li>
                         <li class="text-[#FFFEF2]/50 hover:text-white "> <a href="#">Careers</a></li>
                         <!-- <li class="text-[#FFFEF2]/50 hover:text-white "> <a href="#">Autonomy</a></li> -->
-                        <li class="after:content-['\00AE'] after:top-[2px] after:absolute relative text-[#FFFEF2]/50 hover:text-white"><a href="">True Specialty</a></li>
+                        <li class="text-[#FFFEF2]/50 hover:text-white"><a href="">True Specialty</a></li>
                         <li class="text-[#FFFEF2]/50 hover:text-white "> <a href="#">FAQs</a></li>
                     </ul>
                 </div>
