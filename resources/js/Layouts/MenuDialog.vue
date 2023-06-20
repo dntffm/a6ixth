@@ -35,6 +35,7 @@
                     <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-5xl py-2 mb-2"><a href="">About</a></li>
                     <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-5xl py-2 mb-2"><a href="">Faces</a></li>
                     <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-5xl py-2 mb-2"><a href="">Typology</a></li>
+                    <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-5xl py-2 mb-2"><a href="">Autonomy</a></li>
                     <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-5xl py-2 mb-2 block md:hidden">
                         <a :href="route('discover.index')">
                             Search
@@ -43,14 +44,14 @@
 
                 </ul>
                 <div class="w-full">
-                    <ul class="flex gap-4 md:gap-8 text-xs lg:text-sm font-cantarell border-t border-white py-2">
+                    <ul class="flex gap-4 md:gap-16 text-xs lg:text-sm font-cantarell border-t border-white py-2">
                         <li class="text-[#FFFEF2]/50 hover:text-white ">
                             <a href="mailto:communications@asixth.com">
                                 Contact
                             </a>
                         </li>
                         <li class="text-[#FFFEF2]/50 hover:text-white "> <a href="#">Careers</a></li>
-                        <li class="text-[#FFFEF2]/50 hover:text-white "> <a href="#">Autonomy</a></li>
+                        <!-- <li class="text-[#FFFEF2]/50 hover:text-white "> <a href="#">Autonomy</a></li> -->
                         <li class="after:content-['\00AE'] after:top-[2px] after:absolute relative text-[#FFFEF2]/50 hover:text-white"><a href="">True Specialty</a></li>
                         <li class="text-[#FFFEF2]/50 hover:text-white "> <a href="#">FAQs</a></li>
                     </ul>
