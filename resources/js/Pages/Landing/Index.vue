@@ -15,24 +15,25 @@
                     <p class="text-xl text-white font-cantarell p-3 md:p-0">For those who seek the rare and exceptional</p>
                 </div>
                 <button @click="showRedeemForm = true"
-                    class="border border-white text-white hover:bg-white hover:text-black font-bold font-cantarell h-20 w-1/2 mt-6 md:mt-4 m-auto transition hover:duration-100"
+                    class="border border-white text-white hover:bg-white hover:text-black font-bold font-cantarell h-20 w-1/2 mt-6 md:mt-8 m-auto transition hover:duration-100"
                     v-if="!showRedeemForm">
-                    Redeem Voucher
+                    Gain full access
                 </button>
             </div>
         </div>
         <Transition name="swipe">
             <section class="absolute p-4 bottom-0 lg:right-16 lg:bottom-16 z-50 font-cantarell w-full md:w-[500px]"
                 v-if="showRedeemForm">
-                <input v-model="redeemCode"
+                <input v-model="name"
                     :class="`w-full ${$attrs.errors.code ? 'border-red-500 text-red-500 placeholder-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white text-white placeholder-white focus:ring-offset-white focus:ring-white focus:border-white'} mb-4 text-xl p-4 font-cantarell bg-transparent`"
                     type="text" name="" id="" placeholder="Enter Your Name" />
-                <input v-model="emailRedeem"
+                <input v-model="email"
                     :class="`w-full ${$attrs.errors.email ? 'border-red-500 text-red-500 placeholder-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white text-white placeholder-white focus:ring-offset-white focus:ring-white focus:border-white'} mb-4 text-xl p-4 font-cantarell bg-transparent`"
                     type="text" name="" id="" placeholder="Enter Your Email" />
                 <p class="text-sm text-white my-4 before:content['*']">*By completing this form you are signing up to receive ASIXTH
 related emails, and can unsubscribe at any time.</p>
                 <button
+                @click="gainAccess"
                     class="bg-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-20 w-1/2 m-auto transition hover:duration-100">Gain Full Access</button>
             </section>
         </Transition>
@@ -63,6 +64,8 @@ export default {
             emailRedeem: '',
             redeemCode: '',
             activeImage: 0,
+            name: '',
+            email: '',
             images: [
                 '/img/coffee-1.jpeg',
                 '/img/coffee-2.jpeg',
@@ -86,6 +89,20 @@ export default {
             form.post(route('redeem.gift'), {
                 onSuccess: () => {
                     console.log();
+                }
+            })
+        },
+        gainAccess() {  
+            const form = useForm({
+                email: this.email,
+                name: this.name
+            })
+
+            form.post(route('gain.access'), {
+                onSuccess: () => {
+                    this.name = ''
+                    this.email = ''
+                    alert('Your information saved!')
                 }
             })
         }

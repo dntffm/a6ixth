@@ -45,7 +45,7 @@ Route::group(['prefix' => 'checkout'], function() {
     Route::get('finish', [CheckoutController::class, 'finish'])->name('checkout.finish');
 });
 
-
+Route::post('gain-access', [NotifiedController::class, 'gainAccess'])->name('gain.access');
 
 Route::get('/profile', [ProfileController::class, 'index'])
     ->middleware('auth')

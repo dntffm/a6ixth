@@ -10,12 +10,19 @@
                 <h2 class="text-4xl mb-4">Create Your Account</h2>
                 <p class="text-xl font-cantarell mb-4">We’ll send you magic code to login in via phone</p>
 
-
-                <input v-model="phone_number"
-                    :class="`${dark ? 'text-black' : 'text-black'} w-full bg-background border-black mb-4 text-xl p-4 font-cantarell focus:ring-offset-black focus:ring-black focus:border-black`"
-                    type="text" name="" id="" placeholder="Phone number" />
+                <div class="flex">
+                    <select v-model="country_code"
+                        class="bg-transparent text-white placeholder-white w-1/4 border-white mb-4 text-xl p-4 font-cantarell focus:ring-offset-white focus:ring-white focus:border-white"
+                        name="" id="">
+                        <option value="+1">+1</option>
+                        <option value="+62">+62</option>
+                    </select>
+                    <input v-model="phone_number"
+                        :class="`${dark ? 'text-white' : 'text-white placeholder-white'} w-full bg-transparent border-white mb-4 text-xl p-4 font-cantarell focus:ring-offset-white focus:ring-white focus:border-white`"
+                        type="text" name="" id="" placeholder="000-000-0000" />
+                </div>
                 <button @click="login"
-                    class="bg-black border border-black text-white hover:bg-white hover:text-black font-bold font-cantarell h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
+                    class="bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
                     Continue
                 </button>
 
@@ -28,7 +35,7 @@
             </div>
 
             <div class="my-8">
-                <hr class="w-[95%] border-black m-auto" />
+                <hr class="w-full border-white border-1 m-auto" />
             </div>
             <div>
                 <h3 class="font-neuton text-2xl mb-4">Already Have an Account ?</h3>
@@ -47,12 +54,30 @@
 
                 <div class="grid grid-cols-6 gap-2">
                     <input v-for="i in 6" @input="handleOTPForm($event, i)"
-                        :class="`${dark ? 'text-black' : 'text-black'} w-full bg-background border-black mb-4 text-xl p-4 font-cantarell focus:ring-offset-black focus:ring-black focus:border-black rounded-md text-center`"
+                        :class="`${dark ? 'text-black' : 'text-white'} w-full bg-transparent border-white mb-4 text-xl p-4 font-cantarell focus:ring-offset-white focus:ring-white focus:border-white rounded-md text-center`"
                         type="number" :id="'otp-' + i" min="0" max="9" />
                 </div>
                 <button @click="exchange"
-                    class="bg-black border border-black text-white hover:bg-white hover:text-black font-bold font-cantarell h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
+                    class="bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
                     Verify now
+                </button>
+            </div>
+        </div>
+        <div class="md:px-10 md:py-10" v-if="menu === 'name' && $page.props.user == null">
+            <button @click="$emit('close', false)">
+                <XMarkIcon class="w-7 h-7 " />
+            </button>
+            <div class="mt-10 mb-10">
+                <h2 class="text-4xl mb-4">What Should We Call You?</h2>
+                <p class="text-base font-cantarell mb-4">Enter your full name, first and last. We will address you by
+                    the name you provide for all ASIXTH matters</p>
+
+                <input v-model="name"
+                    :class="`${dark ? 'text-white' : 'text-white placeholder-white'} w-full bg-transparent border-white mb-4 text-xl p-4 font-cantarell focus:ring-offset-white focus:ring-white focus:border-white`"
+                    type="text" name="" id="" placeholder="Enter your name" />
+                <button @click=""
+                    class="bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
+                    Let's Go
                 </button>
             </div>
         </div>
@@ -61,7 +86,7 @@
                 <XMarkIcon class="w-7 h-7 " />
             </button>
             <div class="mt-10 mb-10">
-                <h2 class="text-4xl mb-4">Hello, <br/>{{ $page.props.user.nickname }}</h2>
+                <h2 class="text-4xl mb-4">Hello, <br />{{ $page.props.user.nickname }}</h2>
                 <a :href="route('logout')" class="text-base font-cantarell mb-4 underline text-red-600">logout</a>
             </div>
         </div>
@@ -69,6 +94,12 @@
 </template>
 
 <script setup>
+const menu_constants = {
+    'PHONE': 'phone',
+    'OTP': 'otp',
+    'NAME': 'name'
+}
+
 import { XMarkIcon } from '@heroicons/vue/24/outline'
 import { ref } from 'vue';
 import { useForm } from '@inertiajs/vue3';
@@ -76,7 +107,9 @@ import { useForm } from '@inertiajs/vue3';
 let email = ref('')
 let phone_number = ref('')
 let otp = ref([])
-let menu = ref('phone')
+let menu = ref('otp')
+let country_code = ref('')
+let name = ref('')
 
 defineProps({
     dark: {
@@ -104,7 +137,7 @@ function handleOTPForm(e, i) {
 function login() {
     const form = useForm({
         //email: email.value,
-        phone_number: phone_number.value,
+        phone_number: country_code.value + '' + phone_number.value,
     })
 
     form.post(route('login'), {
@@ -117,7 +150,7 @@ function login() {
 
 function exchange() {
     const form = useForm({
-        phone_number: phone_number.value,
+        phone_number: country_code.value + '' + phone_number.value,
         code: otp.value.join('')
     })
 
