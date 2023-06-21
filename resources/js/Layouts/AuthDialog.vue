@@ -25,10 +25,11 @@
                         </select>
                         <input v-model="phone_number"
                             :class="`${dark ? 'text-white' : 'text-white placeholder-white'} w-full bg-transparent border-white mb-4 text-xl p-4 font-cantarell focus:ring-offset-white focus:ring-white focus:border-white`"
-                            type="text" name="" id="" placeholder="000-000-0000" />
+                            type="number" name="" id="" placeholder="000-000-0000" />
                     </div>
                     <button @click="login"
-                        class="bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
+                        :disabled="phone_number === ''"
+                        class="disabled:cursor-not-allowed cursor-pointer bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
                         Continue
                     </button>
     
@@ -64,7 +65,8 @@
                             type="number" :id="'otp-' + i" min="0" max="9" />
                     </div>
                     <button @click="exchange"
-                        class="bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
+                        :disabled="otp.length < 6"
+                        class="disabled:cursor-not-allowed cursor-pointer bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
                         Verify now
                     </button>
                 </div>
