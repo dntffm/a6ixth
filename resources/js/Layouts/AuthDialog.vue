@@ -16,6 +16,11 @@
                             class="bg-transparent text-white placeholder-white w-1/4 border-white mb-4 text-xl p-4 font-cantarell focus:ring-offset-white focus:ring-white focus:border-white"
                             name="" id="">
                             <option value="+1" selected="selected">+1</option>
+                            <option value="+44">+44</option>
+                            <option value="+26">+26</option>
+                            <option value="+33">+33</option>
+                            <option value="+49">+49</option>
+                            <option value="+82">+82</option>
                             <option value="+62">+62</option>
                         </select>
                         <input v-model="phone_number"
@@ -87,7 +92,7 @@
                     <XMarkIcon class="w-7 h-7 " />
                 </button>
                 <div class="mt-10 mb-10">
-                    <h2 class="text-4xl mb-4">Hello, <br />{{ profileName }}</h2>
+                    <h2 class="text-4xl mb-4">Hello, <br />{{ profileName || $page.props.user.nickname }}</h2>
                     <a :href="route('logout')" class="text-base font-cantarell mb-4 underline text-red-600">logout</a>
                 </div>
             </div>
@@ -113,7 +118,7 @@ let otp = ref([])
 let menu = ref('phone')
 let country_code = ref('+1')
 let name = ref('')
-let profileName = localStorage.getItem('name') || this.$page.props.user.nickname
+let profileName = localStorage.getItem('name')
 
 defineProps({
     dark: {
