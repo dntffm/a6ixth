@@ -1,21 +1,24 @@
 <template>
-    <transition name="slide-down">
-        <aside :class="`${dark ? 'bg-[#1E1E1E] text-white' : 'bg-black/25 backdrop-blur-md'} w-full h-1/4 fixed ${show ? 'top-0' : '-top-1/4'} duration-300 left-0 z-50`">
-            <div class="px-10 py-7">
-                <button @click="$emit('close', false)">
-                    <XMarkIcon class="w-7 h-7 text-white" />
-                </button>
-                <div class="mt-6">
-                    <p class="font-cantarell text-white">You have no Item(s) in your cart. Please add an item to your cart</p>
+    <OnClickOutside @trigger="$emit('close', false)">
+        <transition name="slide-down">
+            <aside :class="`${dark ? 'bg-[#1E1E1E] text-white' : 'bg-black/25 backdrop-blur-md'} w-full h-1/4 fixed ${show ? 'top-0' : '-top-1/4'} duration-300 left-0 z-50`">
+                <div class="px-10 py-7">
+                    <button @click="$emit('close', false)">
+                        <XMarkIcon class="w-7 h-7 text-white" />
+                    </button>
+                    <div class="mt-6">
+                        <p class="font-cantarell text-white">You have no Item(s) in your cart. Please add an item to your cart</p>
+                    </div>
                 </div>
-            </div>
-        </aside>
-    </transition>
+            </aside>
+        </transition>
+    </OnClickOutside>
 </template>
 
 <script setup>
 import { XMarkIcon } from '@heroicons/vue/24/outline'
 import { watch } from 'vue';
+import { OnClickOutside } from '@vueuse/components';
 
 const props = defineProps({
     dark: {

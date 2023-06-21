@@ -24,11 +24,12 @@
         <Transition name="swipe">
             <section class="absolute p-4 bottom-0 lg:right-16 lg:bottom-16 z-50 font-cantarell w-full md:w-[500px]"
                 v-if="showRedeemForm">
+                <p v-if="$attrs.errors.gainAccessFormNull" class="mb-2 text-sm text-red-500">Please complete form below</p>
                 <input v-model="name"
-                    :class="`w-full ${$attrs.errors.code ? 'border-red-500 text-red-500 placeholder-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white text-white placeholder-white focus:ring-offset-white focus:ring-white focus:border-white'} mb-4 text-xl p-4 font-cantarell bg-transparent`"
+                    :class="`w-full ${$attrs.errors.gainAccessFormNull ? 'border-red-500 text-red-500 placeholder-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white text-white placeholder-white focus:ring-offset-white focus:ring-white focus:border-white'} mb-4 text-xl p-4 font-cantarell bg-transparent`"
                     type="text" name="" id="" placeholder="Enter Your Name" />
                 <input v-model="email"
-                    :class="`w-full ${$attrs.errors.email ? 'border-red-500 text-red-500 placeholder-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white text-white placeholder-white focus:ring-offset-white focus:ring-white focus:border-white'} mb-4 text-xl p-4 font-cantarell bg-transparent`"
+                    :class="`w-full ${$attrs.errors.gainAccessFormNull ? 'border-red-500 text-red-500 placeholder-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white text-white placeholder-white focus:ring-offset-white focus:ring-white focus:border-white'} mb-4 text-xl p-4 font-cantarell bg-transparent`"
                     type="text" name="" id="" placeholder="Enter Your Email" />
                 <p class="text-sm text-white my-4 before:content['*']">*By completing this form you are signing up to receive ASIXTH
 related emails, and can unsubscribe at any time.</p>
