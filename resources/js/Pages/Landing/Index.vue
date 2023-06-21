@@ -27,15 +27,16 @@
                 <p v-if="$attrs.errors.gainAccessFormNull" class="mb-2 text-sm text-red-500">Please complete form below</p>
                 <input v-model="name"
                     :class="`w-full ${$attrs.errors.gainAccessFormNull ? 'border-red-500 text-red-500 placeholder-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white text-white placeholder-white focus:ring-offset-white focus:ring-white focus:border-white'} mb-4 text-xl p-4 font-cantarell bg-transparent`"
-                    type="text" name="" id="" placeholder="Enter Your Name" />
+                    type="text" name="" id="" placeholder="Enter Your Name" required/>
                 <input v-model="email"
                     :class="`w-full ${$attrs.errors.gainAccessFormNull ? 'border-red-500 text-red-500 placeholder-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white text-white placeholder-white focus:ring-offset-white focus:ring-white focus:border-white'} mb-4 text-xl p-4 font-cantarell bg-transparent`"
-                    type="text" name="" id="" placeholder="Enter Your Email" />
+                    type="text" name="" id="" placeholder="Enter Your Email" required/>
                 <p class="text-sm text-white my-4 before:content['*']">*By completing this form you are signing up to receive ASIXTH
 related emails, and can unsubscribe at any time.</p>
                 <button
+                :disabled="name === '' && email === ''"
                 @click="gainAccess"
-                    class="bg-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-20 w-1/2 m-auto transition hover:duration-100">Gain Full Access</button>
+                    class="disabled:cursor-not-allowed cursor-pointer bg-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-20 w-1/2 m-auto transition hover:duration-100">Gain Full Access</button>
             </section>
         </Transition>
 
@@ -103,7 +104,7 @@ export default {
                 onSuccess: () => {
                     this.name = ''
                     this.email = ''
-                    alert('Your information saved!')
+                    alert('Your information has been saved!')
                 }
             })
         }
