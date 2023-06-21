@@ -187,6 +187,7 @@ function exchange() {
 function setupProfile() {
     localStorage.setItem('name', name.value)
     menu.value = null
+    location.reload()
 }
 </script>
 
