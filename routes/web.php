@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AutonomyController;
+use App\Http\Controllers\CareersController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GiftController;
 use App\Http\Controllers\NotifiedController;
 use App\Http\Controllers\ProfileController;
@@ -43,6 +47,22 @@ Route::group(['prefix' => 'checkout'], function() {
     Route::get('information', [CheckoutController::class, 'information'])->name('checkout.information');
     Route::get('payment', [CheckoutController::class, 'paymentdetails'])->name('checkout.payment.details');
     Route::get('finish', [CheckoutController::class, 'finish'])->name('checkout.finish');
+});
+
+Route::group(['prefix' => 'autonomy'], function() {
+    Route::get('', [AutonomyController::class, 'index'])->name('autonomy.index');
+});
+
+Route::group(['prefix' => 'careers'], function() {
+    Route::get('', [CareersController::class, 'index'])->name('careers.index');
+});
+
+Route::group(['prefix' => 'contact'], function() {
+    Route::get('', [ContactController::class, 'index'])->name('contact.index');
+});
+
+Route::group(['prefix' => 'about-us'], function() {
+    Route::get('', [AboutController::class, 'index'])->name('about.index');
 });
 
 Route::post('gain-access', [NotifiedController::class, 'gainAccess'])->name('gain.access');

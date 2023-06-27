@@ -3,13 +3,13 @@
     <OnClickOutside @trigger="$emit('close', false)">
         <aside
             :class="`${dark ? 'bg-[#1E1E1E] text-white' : 'bg-black/40 backdrop-blur-md'} h-screen overflow-y-hidden w-full lg:w-1/3 fixed top-0 ${show ? 'left-0' : '-left-full lg:-left-1/2'} z-50 duration-300 p-5`">
-            <div class="px-3 md:px-10 pt-7 flex flex-col justify-between w-full h-full">
+             <div class="px-3 md:px-10 pt-7 flex flex-col justify-between w-full h-full" v-if="menu === null">
                 <button @click="$emit('close', false)">
                     <XMarkIcon class="w-7 h-7 text-white" />
                 </button>
                 <div class="mt-8 flex flex-col h-full justify-between">
                     <ul class="font-neuton text-[#FFFEF2]/50">
-                        <li class="text-5xl mb-2 cursor-pointer" @click="toggleChildMenu">
+                        <li class="text-4xl mb-2 cursor-pointer" @click="toggleChildMenu">
                             <div :class="`relative menu-header pb-4 border-b-2 ${active ? 'text-white border-white' : 'border-[#FFFEF2]/50 text-[#FFFEF2]/50'} hover:text-white hover:border-white`">
                                 <span>Shop</span>
                                 <span class="absolute right-0 bottom-2">
@@ -25,48 +25,61 @@
                             </div>
     
                             <ul class="menu-item hidden">
-                                <li class="text-3xl py-2 mb-2">Commons</li>
-                                <li class="text-3xl py-2 mb-2">Heritage</li>
-                                <li class="text-3xl py-2 mb-2">Fractions</li>
-                                <li class="text-3xl py-2 mb-2">Pillar</li>
-                                <li class="text-3xl py-2 mb-2">Purpose</li>
+                                <li @click="menu = 'shop'" class="text-3xl py-2 mb-2 hover:text-white">Commons</li>
+                                <li @click="menu = 'shop'" class="text-3xl py-2 mb-2 hover:text-white">Heritage</li>
+                                <li @click="menu = 'shop'" class="text-3xl py-2 mb-2 hover:text-white">Fractions</li>
+                                <li @click="menu = 'shop'" class="text-3xl py-2 mb-2 hover:text-white">Pillar</li>
+                                <li @click="menu = 'shop'" class="text-3xl py-2 mb-2 hover:text-white">Purpose</li>
                             </ul>
                         </li>
                         
-                        <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-5xl py-2 mb-2"><a href="">About</a></li>
-                        <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-5xl py-2 mb-2"><a href="">Faces</a></li>
-                        <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-5xl py-2 mb-2"><a href="">Typology</a></li>
-                        <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-5xl py-2 mb-2"><a href="">True Specialty</a></li>
-                        <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-5xl py-2 mb-2 block md:hidden">
+                        <!-- <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2"><a :href="route('about.index')">About</a></li> -->
+                        <li @click="menu = 'about'" class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2"><a>About</a></li>
+                        <li @click="menu = 'true'" class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2"><a>True Specialty</a></li>
+                        <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2"><a href="">Faces</a></li>
+                        <li @click="menu = 'typology'" class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2 flex justify-between items-center">
+                            <a>Typology</a>
+                            <div class="text-xs bg-transparent border border-white rounded-full w-20 text-center">Coming Soon</div>
+                        </li>
+                        <li class="flex items-center mt-10 border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-3xl py-2 mb-2 md:hidden">
                             <a :href="route('discover.index')">
-                                Search
+                                Search for
                             </a>
+                            <ArrowRightIcon class="w-6 h-6 ml-auto"/>
                         </li>
     
                     </ul>
                     <div class="w-full">
                         <ul class="flex flex-row justify-between items-center text-xs lg:text-sm font-cantarell border-t border-white py-2">
                             <li class="text-[#FFFEF2]/50 hover:text-white ">
-                                <a href="mailto:communications@asixth.com">
+                                <a :href="route('contact.index')">
                                     Contact
                                 </a>
                             </li>
-                            <li class="text-[#FFFEF2]/50 hover:text-white "> <a href="#">Careers</a></li>
-                            <li class="text-[#FFFEF2]/50 hover:text-white "> <a href="#">Autonomy</a></li>
-                            <!-- <li class="text-[#FFFEF2]/50 hover:text-white"><a href="">True Specialty</a></li> -->
-                            <li class="text-[#FFFEF2]/50 hover:text-white "> <a href="#">FAQs</a></li>
+                            <li class="text-[#FFFEF2]/50 hover:text-white "> <a :href="route('careers.index')">Careers</a></li>
+                            <li class="text-[#FFFEF2]/50 hover:text-white "> <a :href="route('autonomy.index')">Autonomy</a></li>
+                            <!-- <li class="text-[#FFFEF2]/50 hover:text-white"><a href="true-specialty">True Specialty</a></li> -->
+                            <li class="text-[#FFFEF2]/50 hover:text-white "> <a href="faq">FAQs</a></li>
                         </ul>
                     </div>
                 </div>
     
+            </div>
+            <div class="text-white flex flex-col justify-center items-center gap-6 text-center h-full m-auto w-full md:w-2/4 lg:w-1/2" v-else>
+                <h1 class="font-neuton text-2xl" v-html="contents[menu].title"></h1>
+                <p class="font-cantarell text-sm" v-html="contents[menu].desc"></p>
+                <a @click="menu = null"
+                    class="cursor-pointer bg-white border border-white text-black hover:bg-black hover:text-white font-bold py-3 px-6 font-cantarell transition hover:duration-100">
+                    Return Back
+                </a>
             </div>
         </aside>
     </OnClickOutside>
 </template>
 
 <script setup>
-import { XMarkIcon } from '@heroicons/vue/24/outline'
-import { ref } from 'vue';
+import { XMarkIcon, ArrowRightIcon } from '@heroicons/vue/24/outline'
+import { reactive, ref } from 'vue';
 import { OnClickOutside } from '@vueuse/components';
 
 defineProps({
@@ -81,13 +94,33 @@ defineProps({
 })
 
 let active = ref(false)
+let menu = ref(null)
+let contents = ref({
+    about: {
+        title: 'About Us :  <span class="font-bebas">ASIXTH</span>',
+        desc: `ASIXTH is building the new standard for quality in the coffee space. We are making it easier for consumers to differentiate high quality coffee.<br/><br/>
+        We experience life using our five senses but we fail to acknowledge that sixth sense of “being present.” The name blends A + SIXTH together. We are a company building experiences that allows you acknowledge the sixth sense of being present and what better way to do so than through coffee`
+    },
+    typology: {
+        title: 'Cultivating Typology',
+        desc: 'Typology allows you to determine what coffee region, roast type, price, brew, and more for a unique coffee experience both inside and outside our brand'
+    },
+    true: {
+        title: 'True Specialty Coffee',
+        desc: 'True Specialty is a consumer quality mark that evaluates and verifies that the coffee has achieved either Cup of Excellence status or equivalent.<br/><br/> True Specialty Coffee is coffee that has been graded meticulously, sourced intentionally, farmed sustainably, roasted precisely, and priced affordably '
+    },
+    shop: {
+        title: 'Curating Offerings',
+        desc: 'We curate our offerrings base on the seasonal availability of coffee. Allowing ultra-quality from cultivation to cup '
+    }
+})
 
 function toggleChildMenu(e) {
     active.value = !active.value
     const menuItem = document.getElementsByClassName('menu-item')[0]
     console.log(menuItem);
     menuItem.classList.toggle('hidden')
-    
+
 }
 
 </script>

@@ -13,7 +13,7 @@
     
                     <div class="flex">
                         <select v-model="country_code"
-                            class="bg-transparent text-white placeholder-white w-1/4 border-white mb-4 text-xl p-4 font-cantarell focus:ring-offset-white focus:ring-white focus:border-white"
+                            class="bg-transparent text-white placeholder-white w-1/3 border-white mb-4 text-xl p-4 font-cantarell focus:ring-offset-white focus:ring-white focus:border-white"
                             name="" id="">
                             <option value="+1" selected="selected">+1</option>
                             <option value="+44">+44</option>
@@ -27,10 +27,11 @@
                             :class="`${dark ? 'text-white' : 'text-white placeholder-white'} w-full bg-transparent border-white mb-4 text-xl p-4 font-cantarell focus:ring-offset-white focus:ring-white focus:border-white`"
                             type="number" name="" id="" placeholder="000-000-0000" />
                     </div>
-                    <button @click="login"
-                        :disabled="phone_number === ''"
+                    <button 
+                        @click="login"
+                        :disabled="phone_number === '' || sendingOtp"
                         class="disabled:cursor-not-allowed cursor-pointer bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
-                        Continue
+                        {{ sendingOtp ? 'Sending your OTP...' : 'Continue' }}
                     </button>
     
                 </div>
@@ -61,7 +62,7 @@
     
                     <div class="grid grid-cols-6 gap-2">
                         <input v-for="i in 6" @input="handleOTPForm($event, i)"
-                            :class="`${dark ? 'text-black' : 'text-white'} w-full bg-transparent border-white mb-4 text-xl p-4 font-cantarell focus:ring-offset-white focus:ring-white focus:border-white rounded-md text-center`"
+                            :class="`${dark ? 'text-white' : 'text-white'} w-full bg-transparent border-white mb-4 text-xl p-4 font-cantarell focus:ring-offset-white focus:ring-white focus:border-white rounded-md text-center`"
                             type="number" :id="'otp-' + i" min="0" max="9" />
                     </div>
                     <button @click="exchange"
@@ -121,6 +122,7 @@ let menu = ref('phone')
 let country_code = ref('+1')
 let name = ref('')
 let profileName = localStorage.getItem('name')
+let sendingOtp = ref(false)
 
 defineProps({
     dark: {
@@ -146,6 +148,7 @@ function handleOTPForm(e, i) {
 }
 
 function login() {
+    sendingOtp.value = true
     const form = useForm({
         //email: email.value,
         phone_number: country_code.value + '' + phone_number.value,
@@ -154,6 +157,7 @@ function login() {
     form.post(route('login'), {
         onSuccess: () => {
             //email.value = ''
+            sendingOtp.value = false
             menu.value = 'otp'
         }
     })
