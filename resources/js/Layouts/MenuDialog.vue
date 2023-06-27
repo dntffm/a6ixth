@@ -58,7 +58,7 @@
                             </li>
                             <li class="text-[#FFFEF2]/50 hover:text-white "> <a :href="route('careers.index')">Careers</a></li>
                             <li class="text-[#FFFEF2]/50 hover:text-white "> <a :href="route('autonomy.index')">Autonomy</a></li>
-                            <!-- <li class="text-[#FFFEF2]/50 hover:text-white"><a href="true-specialty">True Specialty</a></li> -->
+                            <li class="text-[#FFFEF2]/50 hover:text-white"><a href="blogs">Blogs</a></li>
                             <li class="text-[#FFFEF2]/50 hover:text-white "> <a href="faq">FAQs</a></li>
                         </ul>
                     </div>
