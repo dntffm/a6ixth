@@ -6,6 +6,7 @@ use App\Http\Controllers\AutonomyController;
 use App\Http\Controllers\CareersController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FacesController;
 use App\Http\Controllers\GiftController;
 use App\Http\Controllers\NotifiedController;
 use App\Http\Controllers\ProfileController;
@@ -63,6 +64,10 @@ Route::group(['prefix' => 'contact'], function() {
 
 Route::group(['prefix' => 'about-us'], function() {
     Route::get('', [AboutController::class, 'index'])->name('about.index');
+});
+
+Route::group(['prefix' => 'faces'], function() {
+    Route::get('', [FacesController::class, 'index'])->name('faces.index');
 });
 
 Route::post('gain-access', [NotifiedController::class, 'gainAccess'])->name('gain.access');

@@ -36,16 +36,19 @@
                         <!-- <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2"><a :href="route('about.index')">About</a></li> -->
                         <li @click="menu = 'about'" class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2"><a>About</a></li>
                         <li @click="menu = 'true'" class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2"><a>True Specialty</a></li>
-                        <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2"><a href="">Faces</a></li>
+                        <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2"><a :href="route('faces.index')">Faces</a></li>
                         <li @click="menu = 'typology'" class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2 flex justify-between items-center">
                             <a>Typology</a>
                             <div class="text-xs bg-transparent border border-white rounded-full w-20 text-center">Coming Soon</div>
                         </li>
-                        <li class="flex items-center mt-10 border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-3xl py-2 mb-2 md:hidden">
-                            <a :href="route('discover.index')">
-                                Search for
-                            </a>
-                            <ArrowRightIcon class="w-6 h-6 ml-auto"/>
+                        <li class="flex items-center mt-10 cursor-pointer hover:text-white hover:border-white text-3xl py-2 mb-2 md:hidden relative">
+                            <input 
+                                v-model="searchQuery"
+                                class="border-b border-b-[#FFFEF2]/50 border-transparent px-0 focus:border-transparent focus:border-b-white focus:ring-0 outline-none outline-0 w-full placeholder:text-4xl text-4xl bg-transparent"
+                                type="text"
+                                placeholder="Search For"
+                            >
+                            <ArrowRightIcon @click="search" class="absolute right-0 w-6 h-6 ml-auto"/>
                         </li>
     
                     </ul>
@@ -81,6 +84,7 @@
 import { XMarkIcon, ArrowRightIcon } from '@heroicons/vue/24/outline'
 import { reactive, ref } from 'vue';
 import { OnClickOutside } from '@vueuse/components';
+import { router } from '@inertiajs/vue3';
 
 defineProps({
     dark: {
@@ -95,6 +99,8 @@ defineProps({
 
 let active = ref(false)
 let menu = ref(null)
+let searchQuery = ref(null)
+
 let contents = ref({
     about: {
         title: 'About Us :  <span class="font-bebas">ASIXTH</span>',
@@ -123,4 +129,9 @@ function toggleChildMenu(e) {
 
 }
 
+function search() {
+    router.get(route('discover.index', {
+        search: searchQuery.value
+    }))
+}
 </script>

@@ -4,7 +4,7 @@
         <slot></slot>
     </main>
 
-    <AppFooter/>
+    <!-- <AppFooter/> -->
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-[60vh] grid grid-cols-1 lg:grid-cols-2 w-full">
+    <div class="min-h-[60vh] grid grid-cols-1 lg:grid-cols-2 w-full h-screen">
         <!-- first screen -->
         <div class="w-full px-3 py-4">
             <div class="p-5 h-full flex flex-col">
@@ -18,7 +18,11 @@
                             :disabled="searchQuery === ''">
                             <ArrowRightIcon class="h-5 w-5 text-gray-400 font-bold" />
                         </button>
-                        <input v-model="searchQuery" @focus="searchFocus" id="searchInput"
+                        <input 
+                            @keypress="enterSearch"
+                            v-model="searchQuery" 
+                            @focus="searchFocus" 
+                            id="searchInput"
                             class="block w-full p-4 pl-10 text-sm border-b border-gray-400 bg-background outline-0"
                             placeholder="Search" required>
                     </div>
@@ -46,7 +50,7 @@
             </div>
         </div>
         <Transition name="swipe" mode="out in">
-            <div class="bg-bone w-full flex" v-if="!searchResultHidden">
+            <div class="bg-bone w-full h-full flex" v-if="!searchResultHidden">
                 <div class="w-full lg:w-1/2 p-5">
                     <div class="mb-3 mt-10" v-for="product in products" v-if="products.length > 0">
                         <h2 class="font-cantarell text-medium text-gray-600 mb-2">{{ product.name }}’s Series</h2>
@@ -133,9 +137,12 @@ export default {
             this.messageHidden = false
             this.suggestionHidden = false
         },
+        enterSearch(e) {
+            if(e.key === 'Enter') this.search(this.searchQuery)
+        },
         search(keyword) {
             if (keyword != null) this.searchQuery = keyword
-
+            
             this.suggestionHidden = true
             this.productItemDetail = null
             this.$inertia.get(route('discover.index'), {
