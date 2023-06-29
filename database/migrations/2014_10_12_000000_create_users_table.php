@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::connection('mysql')->create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('phone_number');
             $table->string('email')->unique()->nullable();
             $table->timestamps();
