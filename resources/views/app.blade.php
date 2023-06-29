@@ -1,10 +1,3 @@
-<style>
-    .h-screen {
-        height: 100vh;
-        /* Fallback for browsers that do not support Custom Properties */
-        height: calc(var(--vh, 1vh) * 100);
-    }
-</style>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -29,7 +22,3 @@
 </body>
 
 </html>
-
-<script>
-    document.documentElement.style.setProperty("--vh", window.innerHeight * 0.01 + 'px');
-</script>
