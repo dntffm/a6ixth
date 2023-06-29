@@ -37,7 +37,7 @@
                         <!-- <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2"><a :href="route('about.index')">About</a></li> -->
                         <li @click="menu = 'about'" class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2" v-if="searchActive === false"><a>About</a></li>
                         <li @click="menu = 'true'" class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2" v-if="searchActive === false"><a>True Specialty</a></li>
-                        <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2" v-if="searchActive === false"><a :href="route('faces.index')">Faces</a></li>
+                        <li @click="router.get(route('faces.index'))" class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2" v-if="searchActive === false"><a :href="route('faces.index')">Faces</a></li>
                         <li @click="menu = 'typology'" class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2 flex justify-between items-center" v-if="searchActive === false">
                             <a>Typology</a>
                             <!-- <div class="text-xs bg-transparent border border-white rounded-full w-20 text-center">Coming Soon</div> -->
