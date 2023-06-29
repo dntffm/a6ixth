@@ -2,7 +2,8 @@
     <!-- Menu sidebar -->
     <OnClickOutside @trigger="$emit('close', false)">
         <aside
-            :class="`${dark ? 'bg-[#1E1E1E] text-white' : 'bg-black/40 backdrop-blur-md'} h-screen overflow-y-hidden w-full lg:w-1/3 fixed top-0 ${show ? 'left-0' : '-left-full lg:-left-1/2'} z-50 duration-300 p-5`">
+            id="menubar"
+            :class="`${dark ? 'bg-[#1E1E1E] text-white' : 'bg-black/40 backdrop-blur-md'} w-full lg:w-1/3 fixed top-0 ${show ? 'left-0' : '-left-full lg:-left-1/2'} z-50 duration-300 p-5`">
              <div class="px-3 md:px-10 pt-7 flex flex-col justify-between w-full h-full" v-if="menu === null">
                 <button @click="$emit('close', false)">
                     <XMarkIcon class="w-7 h-7 text-white" />
@@ -80,9 +81,16 @@
     </OnClickOutside>
 </template>
 
+<style>
+    #menubar {
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
+    }
+</style>
+
 <script setup>
 import { XMarkIcon, ArrowRightIcon } from '@heroicons/vue/24/outline'
-import { reactive, ref } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
 import { OnClickOutside } from '@vueuse/components';
 import { router } from '@inertiajs/vue3';
 
@@ -119,6 +127,15 @@ let contents = ref({
         title: 'Curating Offerings',
         desc: 'We curate our offerrings base on the seasonal availability of coffee. Allowing ultra-quality from cultivation to cup '
     }
+})
+
+onMounted(() => {
+    // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+    let vh = window.innerHeight * 0.01;
+    // Then we set the value in the --vh custom property to the root of the document
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+    console.log(vh);
 })
 
 function toggleChildMenu(e) {
