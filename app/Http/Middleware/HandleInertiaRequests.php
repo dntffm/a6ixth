@@ -39,12 +39,12 @@ class HandleInertiaRequests extends Middleware
             },
             'user' => function () {
                 if(Session::get('user')) {
-                    $token = json_decode(Session::get('user'))->id_token;
+                    /* $token = json_decode(Session::get('user'))->id_token;
                     $tokenParts = explode(".", $token);  
                     $tokenPayload = base64_decode($tokenParts[1]);
-                    $jwtPayload = json_decode($tokenPayload);
+                    $jwtPayload = json_decode($tokenPayload); */
 
-                    return $jwtPayload;
+                    return Session::get('user');
                 } else {
                     return null;
                 }

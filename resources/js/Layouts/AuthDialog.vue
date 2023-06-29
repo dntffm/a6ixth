@@ -99,7 +99,7 @@
                     <XMarkIcon class="w-7 h-7 " />
                 </button>
                 <div class="mt-10 mb-10">
-                    <h2 class="text-4xl mb-4">Hello, <br />{{ profileName || $page.props.user.nickname }}</h2>
+                    <h2 class="text-4xl mb-4">Hello, <br />{{ profileName || $page.props.user.userprof.name }}</h2>
                     <a :href="route('logout')" class="text-base font-cantarell mb-4 underline text-red-600">logout</a>
                 </div>
             </div>
@@ -187,8 +187,8 @@ function exchange() {
         }
     } else {
         form.post(route('exchange'), {
-            onSuccess: () => {
-                if(!localStorage.getItem('name')) menu.value = 'name'
+            onSuccess: (res) => {
+                if(res.props.user.userprof.name === null) menu.value = 'name'
                 else menu.value = null
             }
         })
@@ -196,9 +196,16 @@ function exchange() {
 }
 
 function setupProfile() {
-    localStorage.setItem('name', name.value)
-    menu.value = null
-    location.reload()
+    const form = useForm({
+        phone_number: country_code.value + '' + phone_number.value,
+        name: name.value
+    })
+    form.post(route('account.setup'), {
+        onSuccess: () => {
+            menu.value = null
+            location.reload()
+        }
+    })
 }
 </script>
 

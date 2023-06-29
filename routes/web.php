@@ -79,6 +79,7 @@ Route::get('/profile', [ProfileController::class, 'index'])
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/exchange', [AuthController::class, 'exchange'])->name('exchange');
+Route::post('/account-setup', [AuthController::class, 'setupName'])->name('account.setup');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/callback', [AuthController::class, 'callback'])->name('callback');
 Route::get('/signup', [AuthController::class, 'signup'])->name('signup');
