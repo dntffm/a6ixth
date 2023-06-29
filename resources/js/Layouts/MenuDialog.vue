@@ -3,7 +3,7 @@
     <OnClickOutside @trigger="$emit('close', false)">
         <aside
             id="menubar"
-            :class="`${dark ? 'bg-[#1E1E1E] text-white' : 'bg-black/40 backdrop-blur-md'} md:h-screen w-full lg:w-1/3 fixed top-0 ${show ? 'left-0' : '-left-full lg:-left-1/2'} z-50 duration-300 p-5`">
+            :class="`${dark ? 'bg-[#1E1E1E] text-white' : 'bg-black/40 backdrop-blur-md'} vfh md:h-screen w-full lg:w-1/3 fixed top-0 ${show ? 'left-0' : '-left-full lg:-left-1/2'} z-50 duration-300 p-5`">
              <div class="px-3 md:px-10 pt-7 flex flex-col justify-between w-full h-full" v-if="menu === null">
                 <button @click="$emit('close', false)">
                     <XMarkIcon class="w-7 h-7 text-white" />
@@ -81,14 +81,7 @@
     </OnClickOutside>
 </template>
 
-<style>
-@media screen and (max-width: 450px) {
-    #menubar {
-        height: 100vh;
-        height: calc(var(--vh, 1vh) * 100);
-    }
-}
-</style>
+
 
 <script setup>
 import { XMarkIcon, ArrowRightIcon } from '@heroicons/vue/24/outline'
@@ -132,12 +125,7 @@ let contents = ref({
 })
 
 onMounted(() => {
-    // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
-    let vh = window.innerHeight * 0.01;
-    // Then we set the value in the --vh custom property to the root of the document
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-
-    console.log(vh);
+    
 })
 
 function toggleChildMenu(e) {
