@@ -12,16 +12,16 @@
                 <a href="/">
                     <img class="w-[20px] mx-auto" src="/img/asixth.png" alt="logo">
                 </a>
-                <div class="justify-center items-center gap-8 md:gap-7 ml-auto flex">
+                <div class="justify-center items-center gap-6 md:gap-7 ml-auto flex">
                     <a :href="route('discover.index')" class="text-medium" href="">
                         <span class="hidden md:block">Search</span>
                     </a>
 
                     <button @click="showAuthBar = true">
-                        <img src="/icon/auth-dark.png" class="w-4"/>
+                        <img src="/icon/a.png" class="w-6"/>
                     </button>
                     <button @click="showCartBar = true">
-                        <img src="/icon/cart-dark.png" class="w-4"/>
+                        <img src="/icon/b.png" class="w-6"/>
                     </button>
 
                 </div>

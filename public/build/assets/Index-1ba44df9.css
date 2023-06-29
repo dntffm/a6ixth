@@ -1,0 +1,1 @@
+.play{animation:shadow-pulse 1s infinite}.play:hover{animation:none;background-color:transparent}@keyframes shadow-pulse{0%{transform:scale(.9);box-shadow:0 0 #fff3;background-color:#fff3}to{transform:scale(1);box-shadow:0 0 0 35px #fff0}}

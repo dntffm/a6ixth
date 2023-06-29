@@ -20,7 +20,7 @@
                         placeholder="Enter Your Email Address" />
                     <InputText v-model="form.business_name" class="focus:ring-black focus:ring-1 focus:ring-offset-black focus:border-black"
                         placeholder="Enter Your Business Name" />
-                    <div class="relative">
+                    <div class="relative z-50">
                         <OnClickOutside @trigger="showOptions = false">
                             <InputText id="locationInput" v-model="search" class="focus:ring-black focus:ring-1 focus:ring-offset-black focus:border-black"
                             placeholder="Where Are You Located" v-if="showOptions"/>
@@ -32,7 +32,7 @@
                                 <ChevronUpIcon class="ml-auto w-5 h-5" v-else />
                             </button>
                             
-                            <div class="absolute border-black border border-t-0 bg-transparent w-full" v-if="showOptions">
+                            <div class="md:absolute border-black border border-t-0 bg-transparent w-full z-50" v-if="showOptions">
                                 <div class="max-h-[120px] overflow-y-scroll">
                                     <div @click="chooseState(state)"
                                         class="hover:bg-[#433F32] hover:text-white cursor-pointer p-4 font-cantarell"
@@ -42,7 +42,7 @@
                         </OnClickOutside>
                     </div>
                 </div>
-                <AsixthBlackButton @click="submit" class="w-3/4 md:w-1/4 lg:w-1/6 mt-4">Submit Autonomy</AsixthBlackButton>
+                <AsixthBlackButton @click="submit" class="w-3/4 md:w-1/4 lg:w-1/6 mt-4 h-14 md:h-16 -z-10">Submit Autonomy</AsixthBlackButton>
             </section>
 
             <section class="mt-10 grid grid-cols-1 md:grid-cols-2">

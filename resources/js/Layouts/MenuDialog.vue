@@ -10,7 +10,7 @@
                 </button>
                 <div class="mt-8 flex flex-col h-full justify-between">
                     <ul class="font-neuton text-[#FFFEF2]/50">
-                        <li class="text-4xl mb-2 cursor-pointer" @click="toggleChildMenu">
+                        <li class="text-4xl mb-2 cursor-pointer" @click="toggleChildMenu" v-if="searchActive === false">
                             <div :class="`relative menu-header pb-4 border-b-2 ${active ? 'text-white border-white' : 'border-[#FFFEF2]/50 text-[#FFFEF2]/50'} hover:text-white hover:border-white`">
                                 <span>Shop</span>
                                 <span class="absolute right-0 bottom-2">
@@ -35,22 +35,25 @@
                         </li>
                         
                         <!-- <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2"><a :href="route('about.index')">About</a></li> -->
-                        <li @click="menu = 'about'" class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2"><a>About</a></li>
-                        <li @click="menu = 'true'" class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2"><a>True Specialty</a></li>
-                        <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2"><a :href="route('faces.index')">Faces</a></li>
-                        <li @click="menu = 'typology'" class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2 flex justify-between items-center">
+                        <li @click="menu = 'about'" class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2" v-if="searchActive === false"><a>About</a></li>
+                        <li @click="menu = 'true'" class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2" v-if="searchActive === false"><a>True Specialty</a></li>
+                        <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2" v-if="searchActive === false"><a :href="route('faces.index')">Faces</a></li>
+                        <li @click="menu = 'typology'" class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2 flex justify-between items-center" v-if="searchActive === false">
                             <a>Typology</a>
                             <!-- <div class="text-xs bg-transparent border border-white rounded-full w-20 text-center">Coming Soon</div> -->
                         </li>
-                        <li class="flex items-center mt-10 cursor-pointer hover:text-white hover:border-white text-3xl py-2 mb-2 md:hidden relative">
-                            <input 
-                                v-model="searchQuery"
-                                class="border-b border-b-[#FFFEF2]/50 border-transparent px-0 focus:border-transparent focus:border-b-white focus:ring-0 outline-none outline-0 w-full placeholder:text-[#FFFEF2]/50 placeholder:text-3xl text-3xl font-cantarell bg-transparent"
-                                type="text"
-                                placeholder="Search For"
-                            >
-                            <ArrowRightIcon @click="search" class="absolute right-0 w-6 h-6 ml-auto"/>
-                        </li>
+                        <OnClickOutside @trigger="searchActive = false">
+                            <li class="flex items-center mt-10 cursor-pointer hover:text-white hover:border-white text-3xl py-2 mb-2 md:hidden relative">
+                                <input
+                                    @focus="searchActive = true"
+                                    v-model="searchQuery"
+                                    class="border-b border-b-[#FFFEF2]/50 border-transparent px-0 focus:border-transparent focus:border-b-white focus:ring-0 outline-none outline-0 w-full placeholder:text-[#FFFEF2]/50 placeholder:text-3xl text-3xl font-cantarell bg-transparent"
+                                    type="text"
+                                    placeholder="Search For"
+                                >
+                                <ArrowRightIcon @click="search" class="absolute right-0 w-6 h-6 ml-auto"/>
+                            </li>
+                        </OnClickOutside>
     
                     </ul>
                     <div class="w-full">
@@ -103,7 +106,7 @@ defineProps({
 let active = ref(false)
 let menu = ref(null)
 let searchQuery = ref(null)
-
+let searchActive = ref(false)
 let contents = ref({
     about: {
         title: 'About Us :  <span class="font-bebas">ASIXTH</span>',
@@ -112,7 +115,7 @@ let contents = ref({
     },
     typology: {
         title: 'Cultivating Typology',
-        desc: 'Typology allows you to determine what coffee region, roast type, price, brew, and more for a unique coffee experience both inside and outside our brand'
+        desc: 'Typology allows you to determine what coffee region, roast type, price, brew and more they you prefer. For a unique coffee experience both inside and outside our brand'
     },
     true: {
         title: 'True Specialty Coffee',

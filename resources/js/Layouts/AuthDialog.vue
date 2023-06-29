@@ -2,14 +2,14 @@
     <!-- Auth sidebar -->
     <OnClickOutside @trigger="$emit('close', false)">
         <aside
-            :class="`${dark ? 'bg-[#1E1E1E] text-white' : 'bg-black/40 backdrop-blur-md text-white'} w-full lg:w-1/3 h-screen fixed top-0 ${show ? 'right-0' : '-right-full lg:-right-1/2'} z-50 font-neuton duration-300 p-5`">
+            :class="`${dark ? 'bg-[#1E1E1E] text-white' : 'bg-black/40 backdrop-blur-md text-white'} w-full lg:w-1/3 vfh md:h-screen fixed top-0 ${show ? 'right-0' : '-right-full lg:-right-1/2'} z-50 font-neuton duration-300 p-5`">
             <div class="md:px-10 md:py-10" v-if="menu === 'phone' && $page.props.user == null">
                 <button @click="$emit('close', false)">
                     <XMarkIcon class="w-7 h-7 " />
                 </button>
-                <div class="mt-10 mb-10">
-                    <h2 class="text-4xl mb-4">Create Your Account</h2>
-                    <p class="text-xl font-cantarell mb-4">We’ll send you magic code to login in via phone</p>
+                <div class="mt-4 md:mt-10 mb-10">
+                    <h2 class="text-2xl md:text-4xl mb-4">Create Your Account</h2>
+                    <p class="text-sm md:text-xl font-cantarell mb-4">We’ll send you magic code to login in via phone</p>
     
                     <div class="flex">
                         <select v-model="country_code"
@@ -30,7 +30,7 @@
                     <button 
                         @click="login"
                         :disabled="phone_number === '' || sendingOtp"
-                        class="disabled:cursor-not-allowed cursor-pointer bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-14 md:h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
+                        class="disabled:cursor-not-allowed cursor-pointer bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-14 md:h-16 w-1/2 md:w-1/3 m-auto transition hover:duration-100">
                         Continue
                     </button>
     
@@ -55,8 +55,8 @@
                 <button @click="$emit('close', false)">
                     <XMarkIcon class="w-7 h-7 " />
                 </button>
-                <div class="mt-10 mb-10">
-                    <h2 class="text-4xl mb-4">Confirm your magic codes</h2>
+                <div class="mt-4 md:mt-10 mb-10">
+                    <h2 class="text-2xl md:text-4xl mb-4">Confirm your magic codes</h2>
                     <p class="text-base font-cantarell mb-4">We've texted a magic code to {{ phone_number }}
                         Enter the code we've sent to your device to login or signup.</p>
                         
@@ -71,7 +71,7 @@
                     
                     <button @click="exchange"
                         :disabled="otp.length < 6"
-                        class="disabled:cursor-not-allowed cursor-pointer bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-14 md:h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
+                        class="disabled:cursor-not-allowed cursor-pointer bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-14 md:h-16 w-1/2 md:w-1/3 m-auto transition hover:duration-100">
                         Verify now
                     </button>
                 </div>

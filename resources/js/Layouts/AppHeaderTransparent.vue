@@ -1,6 +1,6 @@
 <template>
     <AuthDialog @close="$e => showAuthBar = $e" :show="showAuthBar"/>    
-    <CartDialog @close="$e => showCartBar = $e" :show="showCartBar"/>
+    <CartDialog :class="`${showCartBar ? 'visible' : 'invisible'}`" @close="$e => showCartBar = $e" :show="showCartBar"/>
     <MenuDialog @close="$e => showLeftSideBar = $e" :show="showLeftSideBar"/>
     
     <header v-bind="$attrs">
@@ -12,7 +12,7 @@
                 <a href="/">
                     <img class="w-[20px] mx-auto" src="/img/a6ixth-white.png" alt="logo">
                 </a>
-                <div class="justify-center items-center gap-7 md:gap-7 ml-auto flex">
+                <div class="justify-center items-center gap-8 md:gap-8 ml-auto flex">
                     <a :href="route('discover.index')" class="text-medium" href="">
                         <span class="hidden md:block">Search</span>
                     </a>
