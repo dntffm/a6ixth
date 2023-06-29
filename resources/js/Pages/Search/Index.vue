@@ -120,7 +120,11 @@ export default {
         suggestions: {
             type: Object,
             default: []
-        }
+        },
+        search: {
+            type: String,
+            default: null
+        },
     },
     data() {
         return {
@@ -154,6 +158,23 @@ export default {
 
             if(this.products.length === 0) this.unfortune = true
             this.searchResultHidden = false
+        }
+    },
+    created() {
+        if(this.search != null) {
+            this.searchQuery = this.search
+            this.suggestionHidden = true
+            this.productItemDetail = null
+            this.$inertia.get(route('discover.index'), {
+                search: this.search
+            }, {
+                replace: false,
+                preserveState: true
+            })
+
+            if(this.products.length === 0) this.unfortune = true
+            this.searchResultHidden = false
+            //this.search(this.search)
         }
     },
     mounted() {

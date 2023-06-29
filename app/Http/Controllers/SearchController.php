@@ -22,12 +22,11 @@ class SearchController extends Controller
             ...$seriesSuggestions
         ]);
 
-        
-
         return Inertia::render('Search/Index', [
             'suggestions' => request()->has('search') ? $suggestions : [],
             'products' => $products,
-            'product_total' => count($products)
+            'product_total' => count($products),
+            'search' => request('search')
             // 'user' => $user
         ]);
     }
