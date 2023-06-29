@@ -1,5 +1,5 @@
 <template>
-    <main class="w-full">
+    <main class="w-full h-screen">
         <div class="w-full h-full bg-black/60 backdrop-blur-md z-20 absolute transition duration-150" @click="showRedeemForm = false"
             v-if="showRedeemForm"></div>
         <AppHeaderTransparent class="fixed bg-transparent w-full text-white font-cantarell z-10" />
