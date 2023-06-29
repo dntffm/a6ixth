@@ -1,16 +1,16 @@
 <template>
     <main class="w-full h-screen">
-        <div class="w-screen h-screen bg-black/60 backdrop-blur-md z-20 absolute transition duration-150" @click="showRedeemForm = false"
+        <div class="w-full h-full bg-black/60 backdrop-blur-md z-20 absolute transition duration-150" @click="showRedeemForm = false"
             v-if="showRedeemForm"></div>
         <AppHeaderTransparent class="fixed bg-transparent w-full text-white font-cantarell z-10" />
 
-        <img :src="images[activeImage]" alt="" class="w-full h-screen object-cover transition duration-300 brightness-75">
+        <img :src="images[activeImage]" alt="" class="w-full h-full object-cover transition duration-300 brightness-75">
 
         <div class="absolute bottom-24 md:bottom-36 w-full">
             <div class="flex flex-col lg:grid lg:grid-cols-3 gap-2 w-full">
                 <div class="text-center col-start-2">
                     <h1
-                        class="text-[#E1DCC7] text-5xl md:text-7xl font-averia mb-4 after:content-['\00AE'] after:text-xl after:absolute md:after:top-5">
+                        class="text-[#E1DCC7] text-5xl md:text-7xl font-averia mb-4 after:content-['\00AE'] after:text-xl after:absolute after:top-2 md:after:top-5">
                         True Specialty</h1>
                     <p class="text-base md:text-xl text-white font-cantarell md:p-0">For those who seek the rare and exceptional</p>
                 </div>

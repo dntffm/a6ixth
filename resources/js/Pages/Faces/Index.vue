@@ -1,5 +1,6 @@
 <template>
-    <main class="flex w-full h-screen bg-[url('/img/coffee-1.jpeg')] bg-center bg-no-repeat bg-cover bg-opacity-50">
+    <main class="flex w-full h-screen bg-[url('/img/faces.jpeg')] bg-center bg-no-repeat bg-cover">
+        <div class="flex bg-black/60 h-screen w-screen absolute"></div>
         <div class="flex bg-black/50 backdrop-blur-md h-screen w-screen absolute z-20 transition ease-in-out delay-150 duration-300" v-if="showForm">
             <div class="text-white text-6xl ml-auto mt-auto md:mr-36 md:mb-36 w-full md:w-1/2 lg:w-1/4 p-4 font-cantarell">
                 <OnClickOutside @trigger="close">
@@ -18,7 +19,7 @@
         </div>
         <AppHeaderTransparent class="fixed bg-transparent w-full text-white font-cantarell z-10" />
 
-        <button @click.prevent="showForm = true" class="mx-auto my-auto">
+        <button @click.prevent="showForm = true" class="mx-auto my-auto z-10">
             <img src="/img/play.png" alt="play">
         </button>
         

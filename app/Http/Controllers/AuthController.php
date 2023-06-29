@@ -63,7 +63,9 @@ class AuthController
 
             return redirect()->back()->with('success', true);
         } catch (\Exception $e) {
-            throw $e;
+            return redirect()->back()->withErrors([
+                'otp' => true
+            ]);
         }
     }
 

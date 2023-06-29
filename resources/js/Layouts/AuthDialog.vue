@@ -30,8 +30,8 @@
                     <button 
                         @click="login"
                         :disabled="phone_number === '' || sendingOtp"
-                        class="disabled:cursor-not-allowed cursor-pointer bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
-                        {{ sendingOtp ? 'Sending your OTP...' : 'Continue' }}
+                        class="disabled:cursor-not-allowed cursor-pointer bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-14 md:h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
+                        Continue
                     </button>
     
                 </div>
@@ -56,18 +56,22 @@
                     <XMarkIcon class="w-7 h-7 " />
                 </button>
                 <div class="mt-10 mb-10">
-                    <h2 class="text-4xl mb-4">Confirm your magic code</h2>
+                    <h2 class="text-4xl mb-4">Confirm your magic codes</h2>
                     <p class="text-base font-cantarell mb-4">We've texted a magic code to {{ phone_number }}
                         Enter the code we've sent to your device to login or signup.</p>
-    
+                        
                     <div class="grid grid-cols-6 gap-2">
+                        
                         <input v-for="i in 6" @input="handleOTPForm($event, i)"
-                            :class="`${dark ? 'text-white' : 'text-white'} w-full bg-transparent border-white mb-4 text-xl p-4 font-cantarell focus:ring-offset-white focus:ring-white focus:border-white rounded-md text-center`"
+                            :class="`${dark ? 'text-white' : 'text-white'} w-full bg-transparent mb-4 text-xl p-4 font-cantarell ${$page.props.errors && $page.props.errors.otp ? 'border-red-500 text-red-500 placeholder-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white text-white placeholder-white focus:ring-offset-white focus:ring-white focus:border-white'} rounded-md text-center`"
                             type="number" :id="'otp-' + i" min="0" max="9" />
                     </div>
+
+                    <p class="text-red-600 mb-4 font-cantarell" v-if="$page.props.errors && $page.props.errors.otp">You’ve enter wrong code , <span class="text-white underline font-bold">Resend Again</span></p>
+                    
                     <button @click="exchange"
                         :disabled="otp.length < 6"
-                        class="disabled:cursor-not-allowed cursor-pointer bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
+                        class="disabled:cursor-not-allowed cursor-pointer bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-14 md:h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
                         Verify now
                     </button>
                 </div>
@@ -85,7 +89,7 @@
                         :class="`${dark ? 'text-white' : 'text-white placeholder-white'} w-full bg-transparent border-white mb-4 text-xl p-4 font-cantarell focus:ring-offset-white focus:ring-white focus:border-white`"
                         type="text" name="" id="" placeholder="Enter your name" />
                     <button @click="setupProfile"
-                        class="bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
+                        class="bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-14 md:h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
                         Let's Go
                     </button>
                 </div>
@@ -132,6 +136,9 @@ defineProps({
     show: {
         type: Boolean,
         default: false
+    },
+    errors: {
+        type: Object
     }
 })
 

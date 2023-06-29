@@ -39,12 +39,12 @@
                         <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2"><a :href="route('faces.index')">Faces</a></li>
                         <li @click="menu = 'typology'" class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2 flex justify-between items-center">
                             <a>Typology</a>
-                            <div class="text-xs bg-transparent border border-white rounded-full w-20 text-center">Coming Soon</div>
+                            <!-- <div class="text-xs bg-transparent border border-white rounded-full w-20 text-center">Coming Soon</div> -->
                         </li>
                         <li class="flex items-center mt-10 cursor-pointer hover:text-white hover:border-white text-3xl py-2 mb-2 md:hidden relative">
                             <input 
                                 v-model="searchQuery"
-                                class="border-b border-b-[#FFFEF2]/50 border-transparent px-0 focus:border-transparent focus:border-b-white focus:ring-0 outline-none outline-0 w-full placeholder:text-4xl text-4xl bg-transparent"
+                                class="border-b border-b-[#FFFEF2]/50 border-transparent px-0 focus:border-transparent focus:border-b-white focus:ring-0 outline-none outline-0 w-full placeholder:text-[#FFFEF2]/50 placeholder:text-3xl text-3xl font-cantarell bg-transparent"
                                 type="text"
                                 placeholder="Search For"
                             >

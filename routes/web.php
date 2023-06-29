@@ -71,6 +71,7 @@ Route::group(['prefix' => 'faces'], function() {
 });
 
 Route::post('gain-access', [NotifiedController::class, 'gainAccess'])->name('gain.access');
+Route::post('autonomy', [NotifiedController::class, 'submitAutonomy'])->name('autonomy.submit');
 
 Route::get('/profile', [ProfileController::class, 'index'])
     ->middleware('auth')

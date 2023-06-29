@@ -1,6 +1,6 @@
 <template>
-    <AppHeader class="bg-background border-b border-gray-400 font-cantarell text-gray-400"/>
-    <main class="bg-background">
+    <AppHeader class="bg-background font-cantarell text-[#81868B]"/>
+    <main class="bg-background flex flex-col h-screen">
         <slot></slot>
     </main>
 

@@ -39,4 +39,32 @@ class NotifiedController extends Controller
         
         return redirect()->back();
     }
+
+    public function submitAutonomy() {
+        Validator::make(request()->all(), [
+            'name' => ['required'],
+            'email' => ['required']
+        ])->validateWithBag('gainAccessFormNull');
+
+        $client = new Client([
+            'headers' => [
+                'Content-Type' => 'application/json'
+            ]
+        ]);
+        
+        $data = [
+            'data' => [
+                'Name' => request('name'),
+                'Business Name' => request('business_name'),
+                'State' => request('state'),
+                'Email Address' => request('email')
+            ]
+        ];
+        
+        $response = $client->post('https://sheetdb.io/api/v1/l9l5sm6k4au9r', [
+            'body' => json_encode($data),
+        ]);
+        
+        return redirect()->back();
+    }
 }
