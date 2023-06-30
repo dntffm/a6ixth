@@ -3,7 +3,7 @@
 
         <Head title="Careers" />
 
-        <section class="px-4 py-8 md:px-8 md:py-10">
+        <section class="px-4 py-8 md:px-8 md:py-10 md:h-screen">
             <h1 class="text-2xl md:text-4xl font-neuton mb-4">Become <span class="font-bebas">ASIXTH</span></h1>
             <p class="font-cantarell text-black/70 text-sm leading-loose">
                 We current hiring for these roles. Join us in bringing
@@ -11,19 +11,19 @@
             </p>
 
             <div class="mt-4 flex flex-col gap-2 md:gap-5 md:w-[60%]">
-                <div class="w-full border-black/70 border px-4 py-3 flex items-center" v-for="i in 3">
-                    <div class="w-[85%]">
-                        <h3 class="font-neuton text-lg mb-2">Founding Engineer</h3>
-                        <div class="flex items-center">
-                            <p class="font-cantarell text-sm text-black/70 leading-loose">For personalized advice, we invite
-                                you to arrange a video appointment
-                                with an ASIXTH consultant</p>
+                <a v-for="content in contents" :href="content.link" target="_blank">
+                    <div class="w-full border-black/70 border px-4 py-3 flex items-center">
+                        <div class="w-[85%]">
+                            <h3 class="font-neuton text-lg mb-2">{{ content.title }}</h3>
+                            <div class="flex items-center">
+                                <p class="font-cantarell text-sm text-black/70 leading-loose">{{ content.desc }}</p>
+                            </div>
+                        </div>
+                        <div class="w-[15%]">
+                            <ArrowRightIcon class="w-6 h-6 text-gray-400 font-bold m-auto"/>
                         </div>
                     </div>
-                    <div class="w-[15%]">
-                        <ArrowRightIcon class="w-6 h-6 text-gray-400 font-bold m-auto"/>
-                    </div>
-                </div>
+                </a>
             </div>
         </section>
     </BaseLayout>
@@ -33,4 +33,22 @@
 import { Head } from '@inertiajs/vue3';
 import BaseLayout from '@/Layouts/BaseLayout.vue';
 import { ArrowRightIcon } from '@heroicons/vue/24/outline';
+
+let contents = [
+    {
+        title: 'Founding Engineer',
+        desc: 'For personalized advice, we invite you to arrange a video appointment with an ASIXTH consultant',
+        link: 'https://a6ixth-careers.notion.site/Full-Stack-Engineer-3c97af41d92546acbfc0da8dc11f3f2b'
+    },
+    {
+        title: 'Customer Relations',
+        desc: 'We welcome you to contacts us via live concierge hours of operation: Monday - Sunday ,24hrs EST',
+        link: 'https://a6ixth-careers.notion.site/Concierge-Specialist-3742c7e741134c0a9bed0aa57ddf9428'
+    },
+    {
+        title: 'Create Your own Role',
+        desc: 'We are always looking for talent individuals to join our team. If you believe you have a unique way to help us please reach out to careers@asixth.com',
+        link: 'https://a6ixth-careers.notion.site/Senior-Product-Designer-effc16e50e1e44ac970ac0aa5b7c2c89'
+    },
+]
 </script>

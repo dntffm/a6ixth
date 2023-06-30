@@ -3,7 +3,7 @@
 
         <Head title="Autonomy" />
 
-        <div class="px-4 py-8 md:px-8 md:py-10">
+        <div class="px-4 py-8 md:px-8 md:py-10 md:h-screen">
             <h1 class="text-2xl md:text-4xl font-neuton mb-4">Autonomy</h1>
             <p class="font-cantarell text-black/70 text-sm leading-loose">
                 We are expanding and looking for roasters to partner
@@ -20,7 +20,7 @@
                         placeholder="Enter Your Email Address" />
                     <InputText v-model="form.business_name" class="focus:ring-black focus:ring-1 focus:ring-offset-black focus:border-black"
                         placeholder="Enter Your Business Name" />
-                    <div class="relative z-50">
+                    <div class="relative">
                         <OnClickOutside @trigger="showOptions = false">
                             <InputText id="locationInput" v-model="search" class="focus:ring-black focus:ring-1 focus:ring-offset-black focus:border-black"
                             placeholder="Where Are You Located" v-if="showOptions"/>
@@ -32,7 +32,7 @@
                                 <ChevronUpIcon class="ml-auto w-5 h-5" v-else />
                             </button>
                             
-                            <div class="md:absolute border-black border border-t-0 bg-transparent w-full z-50" v-if="showOptions">
+                            <div class="md:absolute border-black border border-t-0 bg-transparent w-full" v-if="showOptions">
                                 <div class="max-h-[120px] overflow-y-scroll">
                                     <div @click="chooseState(state)"
                                         class="hover:bg-[#433F32] hover:text-white cursor-pointer p-4 font-cantarell"
@@ -42,7 +42,7 @@
                         </OnClickOutside>
                     </div>
                 </div>
-                <AsixthBlackButton @click="submit" class="w-3/4 md:w-1/4 lg:w-1/6 mt-4 h-14 md:h-16 -z-10">Submit Autonomy</AsixthBlackButton>
+                <AsixthBlackButton @click="submit" class="w-3/4 md:w-1/4 lg:w-1/6 mt-4 h-14 md:h-16">Submit Autonomy</AsixthBlackButton>
             </section>
 
             <section class="mt-10 grid grid-cols-1 md:grid-cols-2">
@@ -95,111 +95,111 @@ function show() {
 }
 let location = ref('')
 let statesRaw = ref([
-    "Alabama",
-    "Alaska",
-    "Arizona",
-    "Arkansas",
-    "California",
-    "Colorado",
-    "Connecticut",
-    "Delaware",
-    "District of Columbia",
-    "Florida",
-    "Georgia",
-    "Hawaii",
-    "Idaho",
-    "Illinois",
-    "Indiana",
-    "Iowa",
-    "Kansas",
-    "Kentucky",
-    "Louisiana",
-    "Maine",
-    "Montana",
-    "Nebraska",
-    "Nevada",
-    "New Hampshire",
-    "New Jersey",
-    "New Mexico",
-    "New York",
-    "North Carolina",
-    "North Dakota",
-    "Ohio",
-    "Oklahoma",
-    "Oregon",
-    "Maryland",
-    "Massachusetts",
-    "Michigan",
-    "Minnesota",
-    "Mississippi",
-    "Missouri",
-    "Pennsylvania",
-    "Rhode Island",
-    "South Carolina",
-    "South Dakota",
-    "Tennessee",
-    "Texas",
-    "Utah",
-    "Vermont",
-    "Virginia",
-    "Washington",
-    "West Virginia",
-    "Wisconsin",
-    "Wyoming"
+"Alabama",
+"Alaska",
+"Arizona",
+"Arkansas",
+"California",
+"Colorado",
+"Connecticut",
+"Delaware",
+"District of Columbia",
+"Florida",
+"Georgia",
+"Hawaii",
+"Idaho",
+"Illinois",
+"Indiana",
+"Iowa",
+"Kansas",
+"Kentucky",
+"Louisiana",
+"Maine",
+"Maryland",
+"Massachusetts",
+"Michigan",
+"Minnesota",
+"Mississippi",
+"Missouri",
+"Montana",
+"Nebraska",
+"Nevada",
+"New Hampshire",
+"New Jersey",
+"New Mexico",
+"New York",
+"North Carolina",
+"North Dakota",
+"Ohio",
+"Oklahoma",
+"Oregon",
+"Pennsylvania",
+"Rhode Island",
+"South Carolina",
+"South Dakota",
+"Tennessee",
+"Texas",
+"Utah",
+"Vermont",
+"Virginia",
+"Washington",
+"West Virginia",
+"Wisconsin",
+"Wyoming"
 ]);
 
 let states = ref([
-    "Alabama",
-    "Alaska",
-    "Arizona",
-    "Arkansas",
-    "California",
-    "Colorado",
-    "Connecticut",
-    "Delaware",
-    "District of Columbia",
-    "Florida",
-    "Georgia",
-    "Hawaii",
-    "Idaho",
-    "Illinois",
-    "Indiana",
-    "Iowa",
-    "Kansas",
-    "Kentucky",
-    "Louisiana",
-    "Maine",
-    "Montana",
-    "Nebraska",
-    "Nevada",
-    "New Hampshire",
-    "New Jersey",
-    "New Mexico",
-    "New York",
-    "North Carolina",
-    "North Dakota",
-    "Ohio",
-    "Oklahoma",
-    "Oregon",
-    "Maryland",
-    "Massachusetts",
-    "Michigan",
-    "Minnesota",
-    "Mississippi",
-    "Missouri",
-    "Pennsylvania",
-    "Rhode Island",
-    "South Carolina",
-    "South Dakota",
-    "Tennessee",
-    "Texas",
-    "Utah",
-    "Vermont",
-    "Virginia",
-    "Washington",
-    "West Virginia",
-    "Wisconsin",
-    "Wyoming"
+"Alabama",
+"Alaska",
+"Arizona",
+"Arkansas",
+"California",
+"Colorado",
+"Connecticut",
+"Delaware",
+"District of Columbia",
+"Florida",
+"Georgia",
+"Hawaii",
+"Idaho",
+"Illinois",
+"Indiana",
+"Iowa",
+"Kansas",
+"Kentucky",
+"Louisiana",
+"Maine",
+"Maryland",
+"Massachusetts",
+"Michigan",
+"Minnesota",
+"Mississippi",
+"Missouri",
+"Montana",
+"Nebraska",
+"Nevada",
+"New Hampshire",
+"New Jersey",
+"New Mexico",
+"New York",
+"North Carolina",
+"North Dakota",
+"Ohio",
+"Oklahoma",
+"Oregon",
+"Pennsylvania",
+"Rhode Island",
+"South Carolina",
+"South Dakota",
+"Tennessee",
+"Texas",
+"Utah",
+"Vermont",
+"Virginia",
+"Washington",
+"West Virginia",
+"Wisconsin",
+"Wyoming"
 ]);
 watch(search, (newValue, oldValue) => {
     let newStates = statesRaw.value.filter(item => item.toLowerCase().indexOf(newValue) > -1)

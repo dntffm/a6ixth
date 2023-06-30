@@ -55,6 +55,31 @@ export default {
             showAuthBar: false,
             showCartBar: false
         }
+    },
+    watch: {
+        showLeftSideBar: {
+            handler: function(newValue) {
+                this.stopScrolling(newValue)
+            },
+            deep: true
+        },
+        showAuthBar: {
+            handler: function(newValue) {
+                this.stopScrolling(newValue)
+            },
+            deep: true
+        }
+    },
+    methods: {
+        stopScrolling(sidebarActive) {
+            if(sidebarActive) {
+                document.body.classList.remove('overflow-initial')
+                document.body.classList.add('overflow-hidden')
+            } else {
+                document.body.classList.add('overflow-initial')
+                document.body.classList.remove('overflow-hidden')
+            }
+        }
     }
 }
 </script>

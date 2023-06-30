@@ -6,7 +6,7 @@
                 <div class="w-full lg:w-4/5">
                     <Transition name="swipe" mode="out-in" appear>
                         <div class="mb-10">
-                            <h1 class="font-neuton text-6xl mb-2">Search with
+                            <h1 class="font-neuton text-2xl md:text-6xl mb-2">Search with
                                 <span id="asixth" class="font-bebas"></span>
                             </h1>
                             <p class="font-cantarell text-medium">Where would you like your order sent?</p>

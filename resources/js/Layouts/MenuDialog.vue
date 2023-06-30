@@ -110,12 +110,15 @@ let searchActive = ref(false)
 let contents = ref({
     about: {
         title: 'About Us :  <span class="font-bebas">ASIXTH</span>',
-        desc: `ASIXTH is building the new standard for quality in the coffee space. We are making it easier for consumers to differentiate high quality coffee.<br/><br/>
-        We experience life using our five senses but we fail to acknowledge that sixth sense of “being present.” The name blends A + SIXTH together. We are a company building experiences that allows you acknowledge the sixth sense of being present and what better way to do so than through coffee`
+        desc: `ASIXTH is building the new standard for quality in the coffee space. We are making it easier for consumers to differentiate high quality coffee.
+            <br/><br/>
+            We are a company building experiences that allows you acknowledge the sixth sense of being present and what better way to do so than through coffee. The name blends A + SIXTH together.
+            <br/><br/>
+            We experience life using our five senses but we fail to acknowledge that sixth sense of “being present.” We building a world where people are aware and present in everything they do whether it’s noticed or unnoticed`
     },
     typology: {
         title: 'Cultivating Typology',
-        desc: 'Typology allows you to determine what coffee region, roast type, price, brew and more they you prefer. For a unique coffee experience both inside and outside our brand'
+        desc: 'Typology allows you to determine what coffee region, roast type, price, brew and more that you prefer. For a unique coffee experience both inside and outside our brand'
     },
     true: {
         title: 'True Specialty Coffee',

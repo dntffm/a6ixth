@@ -25,7 +25,7 @@
     @inertiaHead
 </head>
 
-<body class="font-sans antialiased">
+<body class="font-sans antialiased overflow-initial">
     @inertia
 </body>
 <script>
