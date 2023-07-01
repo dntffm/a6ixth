@@ -1,16 +1,16 @@
 <template>
-    <main class="flex w-full h-screen bg-[url('/img/faces.jpeg')] bg-center bg-no-repeat bg-cover">
+    <main class="flex w-full vfh md:h-screen bg-[url('/img/faces.jpeg')] bg-center bg-no-repeat bg-cover">
         <div class="flex bg-black/60 vfh md:h-screen w-screen absolute"></div>
         <div class="flex bg-black/50 backdrop-blur-md vfh md:h-screen w-screen absolute z-20 transition ease-in-out delay-150 duration-300" v-if="showForm">
             <div class="text-white text-6xl my-auto mx-auto md:mr-36 md:mb-36 w-full md:w-1/2 lg:w-1/4 p-4 font-cantarell">
                 <OnClickOutside @trigger="close">
-                    <input 
+                    <input
                         v-model="email"
                         class="w-full border-white text-white placeholder-white focus:ring-offset-white focus:ring-white focus:border-white mb-4 text-xl p-4 font-cantarell bg-transparent"
-                        type="text" 
-                        name="" 
-                        id="" 
-                        placeholder="Enter Your Email" 
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Enter Your Email"
                         required
                     />
                 </OnClickOutside>
@@ -22,7 +22,7 @@
         <button @click.prevent="showForm = true" class="play w-10 h-10 rounded-full flex items-center justify-center mx-auto my-auto z-10">
             <img src="/img/play.png" alt="play" class="w-6">
         </button>
-        
+
         <div class="absolute bottom-24 md:bottom-36 w-full px-4">
             <div class="flex flex-col items-center justify-center gap-2">
                 <h1

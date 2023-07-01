@@ -24,7 +24,7 @@
                                     </svg>
                                 </span>
                             </div>
-    
+
                             <ul class="menu-item hidden">
                                 <li @click="menu = 'shop'" class="text-3xl py-2 mb-2 hover:text-white">Commons</li>
                                 <li @click="menu = 'shop'" class="text-3xl py-2 mb-2 hover:text-white">Heritage</li>
@@ -33,7 +33,7 @@
                                 <li @click="menu = 'shop'" class="text-3xl py-2 mb-2 hover:text-white">Purpose</li>
                             </ul>
                         </li>
-                        
+
                         <!-- <li class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2"><a :href="route('about.index')">About</a></li> -->
                         <li @click="menu = 'about'" class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2" v-if="searchActive === false"><a>About</a></li>
                         <li @click="menu = 'true'" class="border-b-2 border-[#FFFEF2]/50 cursor-pointer hover:text-white hover:border-white text-4xl py-2 mb-2" v-if="searchActive === false"><a>True Specialty</a></li>
@@ -54,7 +54,7 @@
                                 <ArrowRightIcon @click="search" class="absolute right-0 w-6 h-6 ml-auto"/>
                             </li>
                         </OnClickOutside>
-    
+
                     </ul>
                     <div class="w-full">
                         <ul class="flex flex-row justify-between items-center text-xs lg:text-sm font-cantarell border-t border-white py-2">
@@ -70,7 +70,7 @@
                         </ul>
                     </div>
                 </div>
-    
+
             </div>
             <div class="text-white flex flex-col justify-center items-center gap-6 text-center h-full m-auto w-full md:w-2/4 lg:w-1/2" v-else>
                 <h1 class="font-neuton text-2xl" v-html="contents[menu].title"></h1>
@@ -114,7 +114,7 @@ let contents = ref({
             <br/><br/>
             We are a company building experiences that allows you acknowledge the sixth sense of being present and what better way to do so than through coffee. The name blends A + SIXTH together.
             <br/><br/>
-            We experience life using our five senses but we fail to acknowledge that sixth sense of “being present.” We building a world where people are aware and present in everything they do whether it’s noticed or unnoticed`
+            We experience life using our five senses but we fail to acknowledge that sixth sense of “being present.” We are building a world where people are aware and present in everything they do.`
     },
     typology: {
         title: 'Cultivating Typology',
@@ -131,7 +131,7 @@ let contents = ref({
 })
 
 onMounted(() => {
-    
+
 })
 
 function toggleChildMenu(e) {
