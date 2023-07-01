@@ -1,5 +1,14 @@
 <template>
     <main class="w-full vfh md:h-screen">
+        <div class="absolute top-0 left-0 w-screen h-screen text-white gap-6 bg-black/80 z-50 flex flex-col items-center justify-center p-16 md:p-4 text-center" v-if="gainAccessIsFinish">
+            <h1 class="font-neuton text-2xl md:text-6xl">All Set, You’re In!</h1>
+            <p class="font-cantarell text-sm md:text-base">We will not reach out to you soon! Thanks for signing up</p>
+            <a
+                href="/"
+                class="flex items-center cursor-pointer bg-white border border-white text-black hover:bg-black hover:text-white font-bold p-6 h-14 md:h-16 font-cantarell transition hover:duration-100">
+                Back to Homepage
+            </a>
+        </div>
         <div class="w-full h-full bg-black/60 backdrop-blur-md z-20 absolute transition duration-150" @click="showRedeemForm = false"
             v-if="showRedeemForm"></div>
         <AppHeaderTransparent class="fixed bg-transparent w-full text-white font-cantarell z-10" />
@@ -22,7 +31,7 @@
             </div>
         </div>
         <Transition name="swipe">
-            <section class="absolute p-4 bottom-0 lg:right-16 lg:bottom-16 z-50 font-cantarell w-full md:w-[500px]"
+            <section class="absolute p-4 bottom-0 lg:right-16 lg:bottom-16 z-40 font-cantarell w-full md:w-[500px]"
                 v-if="showRedeemForm">
                 <p v-if="$attrs.errors.gainAccessFormNull" class="mb-2 text-sm text-red-500">Please complete form below</p>
                 <input v-model="name"
@@ -60,6 +69,7 @@ export default {
     },
     data() {
         return {
+            gainAccessIsFinish: false,
             showLeftSideBar: false,
             showAuthBar: false,
             showRedeemForm: false,
@@ -94,7 +104,7 @@ export default {
                 }
             })
         },
-        gainAccess() {  
+        gainAccess() {
             const form = useForm({
                 email: this.email,
                 name: this.name
@@ -104,7 +114,7 @@ export default {
                 onSuccess: () => {
                     this.name = ''
                     this.email = ''
-                    alert('Your information has been saved!')
+                    this.gainAccessIsFinish = true
                 }
             })
         }
