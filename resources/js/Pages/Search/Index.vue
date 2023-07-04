@@ -6,7 +6,7 @@
                 <div class="w-full lg:w-4/5">
                     <Transition name="swipe" mode="out-in" appear>
                         <div class="mb-10">
-                            <h1 class="font-neuton text-2xl md:text-6xl mb-2">Search with
+                            <h1 class="font-neuton text-2xl md:text-4xl mb-2">Search with
                                 <span id="asixth" class="font-bebas"></span>
                             </h1>
                             <p class="font-cantarell text-medium">Where would you like your order sent?</p>
@@ -18,15 +18,15 @@
                             :disabled="searchQuery === ''">
                             <ArrowRightIcon class="h-5 w-5 text-gray-400 font-bold" />
                         </button>
-                        <input 
+                        <input
                             @keypress="enterSearch"
-                            v-model="searchQuery" 
-                            @focus="searchFocus" 
+                            v-model="searchQuery"
+                            @focus="searchFocus"
                             id="searchInput"
                             class="block w-full p-4 pl-10 text-sm border-b border-gray-400 bg-background outline-0"
                             placeholder="Search" required>
                     </div>
-                    
+
                     <div class="font-cantarell text-medium mt-10" v-if="product_total > 0">
                         <h2 class=" text-medium font-cantarell mb-2 fade-item">{{ suggestions.length > 0 ? 'Did you mean :' :
                             'Suggested :' }}</h2>
@@ -146,7 +146,7 @@ export default {
         },
         search(keyword) {
             if (keyword != null) this.searchQuery = keyword
-            
+
             this.suggestionHidden = true
             this.productItemDetail = null
             this.$inertia.get(route('discover.index'), {
