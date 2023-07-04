@@ -8,8 +8,8 @@
                     <XMarkIcon class="w-7 h-7 " />
                 </button>
                 <div class="mt-4 md:mt-10 mb-10">
-                    <h2 class="text-2xl md:text-4xl mb-4">Create Your Account</h2>
-                    <p class="text-sm md:text-xl font-cantarell mb-4">We’ll send you magic code to login in via phone</p>
+                    <h2 class="text-2xl md:text-2xl mb-4">Create Your Account</h2>
+                    <p class="text-sm md:text-base font-cantarell mb-4">We’ll send you magic code to login in via phone</p>
 
                     <div class="flex">
                         <select v-model="country_code"
@@ -30,7 +30,7 @@
                     <button
                         @click="login"
                         :disabled="phone_number === '' || sendingOtp"
-                        class="disabled:cursor-not-allowed cursor-pointer bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-14 md:h-16 w-1/2 md:w-1/3 m-auto transition hover:duration-100">
+                        class="disabled:cursor-not-allowed cursor-pointer bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-14 md:h-14 w-1/2 md:w-1/3 m-auto transition hover:duration-100">
                         Continue
                     </button>
 
@@ -56,7 +56,7 @@
                     <XMarkIcon class="w-7 h-7 " />
                 </button>
                 <div class="mt-4 md:mt-10 mb-10">
-                    <h2 class="text-2xl md:text-4xl mb-4">Confirm your magic codes</h2>
+                    <h2 class="text-2xl md:text-2xl mb-4">Confirm your magic code</h2>
                     <p class="text-base font-cantarell mb-4">We've texted a magic code to {{ phone_number }}
                         Enter the code we've sent to your device to login or signup.</p>
 
@@ -71,7 +71,7 @@
 
                     <button @click="exchange"
                         :disabled="otp.length < 6"
-                        class="disabled:cursor-not-allowed cursor-pointer bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-14 md:h-16 w-1/2 md:w-1/3 m-auto transition hover:duration-100">
+                        class="disabled:cursor-not-allowed cursor-pointer bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-14 md:h-14 w-1/2 md:w-1/3 m-auto transition hover:duration-100">
                         Verify now
                     </button>
                 </div>
@@ -81,7 +81,7 @@
                     <XMarkIcon class="w-7 h-7 " />
                 </button>
                 <div class="mt-10 mb-10">
-                    <h2 class="text-4xl mb-4">What Should We Call You?</h2>
+                    <h2 class="text-2xl mb-4">What Should We Call You?</h2>
                     <p class="text-base font-cantarell mb-4">Enter your full name, first and last. We will address you by
                         the name you provide for all ASIXTH matters</p>
 
@@ -89,7 +89,7 @@
                         :class="`${dark ? 'text-white' : 'text-white placeholder-white'} w-full bg-transparent border-white mb-4 text-xl p-4 font-cantarell focus:ring-offset-white focus:ring-white focus:border-white`"
                         type="text" name="" id="" placeholder="Enter your name" />
                     <button @click="setupProfile"
-                        class="bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-14 md:h-16 w-full md:w-1/3 m-auto transition hover:duration-100">
+                        class="bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-14 md:h-14 w-full md:w-1/3 m-auto transition hover:duration-100">
                         Let's Go
                     </button>
                 </div>
@@ -99,8 +99,8 @@
                     <XMarkIcon class="w-7 h-7 " />
                 </button>
                 <div class="mt-10 mb-10">
-                    <h2 class="text-4xl mb-4">Hello, <br />{{ profileName || $page.props.user.userprof.name }}</h2>
-                    <a :href="route('logout')" class="text-base font-cantarell mb-4 underline text-red-600">logout</a>
+                    <h2 class="text-2xl mb-4">Hello, <br />{{ profileName || $page.props.user.userprof.name }}</h2>
+                    <a :href="route('logout')" class="text-base font-cantarell mb-4 text-white hover:underline hover:text-red-600">Log Out</a>
                 </div>
             </div>
         </aside>

@@ -1,1 +1,0 @@
-import{_ as t}from"./_plugin-vue_export-helper-c27b6911.js";import{o,f as r,t as s}from"./app-cb2898eb.js";const n={props:{user:{type:Object,default:null}}};function a(c,p,e,l,f,u){return o(),r("div",null,s(e.user),1)}const d=t(n,[["render",a]]);export{d as default};

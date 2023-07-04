@@ -1,10 +1,10 @@
 <template>
     <section class="bg-black h-screen w-screen text-white flex flex-col justify-center items-center gap-6 text-center">
-        <h1 class="font-neuton text-6xl">{{ title }}</h1>
-        <p class="font-cantarell">{{ description }}</p>
+        <h1 class="font-neuton text-2xl md:text-2xl">{{ title }}</h1>
+        <p class="font-cantarell text-sm md:text-sm w-64">{{ description }}</p>
         <a
             href="/"
-            class="cursor-pointer bg-white border border-white text-black hover:bg-black hover:text-white font-bold p-6 font-cantarell transition hover:duration-100">
+            class="cursor-pointer bg-white border border-white text-black h-14 flex items-center hover:bg-black hover:text-white font-bold p-6 font-cantarell transition hover:duration-100">
             Back to Homepage
         </a>
     </section>

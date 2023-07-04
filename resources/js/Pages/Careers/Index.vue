@@ -37,12 +37,12 @@ import { ArrowRightIcon } from '@heroicons/vue/24/outline';
 let contents = [
     {
         title: 'Founding Engineer',
-        desc: 'For personalized advice, we invite you to arrange a video appointment with an ASIXTH consultant',
+        desc: 'We are seeking a talented and experienced founding software engineer to join our team and revolutionize the coffee industry',
         link: 'https://a6ixth-careers.notion.site/Full-Stack-Engineer-3c97af41d92546acbfc0da8dc11f3f2b'
     },
     {
         title: 'Customer Relations',
-        desc: 'We welcome you to contacts us via live concierge hours of operation: Monday - Sunday ,24hrs EST',
+        desc: 'As a key member of our company, you will be responsible for building and nurturing strong relationships with our customers, ensuring their satisfaction and loyalty',
         link: 'https://a6ixth-careers.notion.site/Concierge-Specialist-3742c7e741134c0a9bed0aa57ddf9428'
     },
     {
