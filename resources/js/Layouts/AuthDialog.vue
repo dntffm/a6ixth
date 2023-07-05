@@ -56,18 +56,23 @@
                     <XMarkIcon class="w-7 h-7 " />
                 </button>
                 <div class="mt-4 md:mt-10 mb-10">
-                    <h2 class="text-2xl md:text-2xl mb-4">Confirm your magic code</h2>
+                    <h2 class="text-2xl md:text-2xl mb-4">Confirm Your Magic Code</h2>
                     <p class="text-base font-cantarell mb-4">We've texted a magic code to {{ phone_number }}
                         Enter the code we've sent to your device to login or signup.</p>
 
                     <div class="grid grid-cols-6 gap-2">
 
-                        <input v-for="i in 6" @input="handleOTPForm($event, i)"
+                        <input v-for="i in 6"
+                            @keyup="handleOTPKeyboard($event, i)"
+                            @input="handleOTPForm($event, i)"
                             :class="`${dark ? 'text-white' : 'text-white'} w-full bg-transparent mb-4 text-xl p-4 font-cantarell ${$page.props.errors && $page.props.errors.otp ? 'border-red-500 text-red-500 placeholder-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white text-white placeholder-white focus:ring-offset-white focus:ring-white focus:border-white'} rounded-md text-center`"
-                            type="number" :id="'otp-' + i" min="0" max="9" />
+                            type="number"
+                            :id="'otp-' + i"
+                            min="0"
+                            max="9" />
                     </div>
 
-                    <p class="text-red-600 mb-4 font-cantarell" v-if="$page.props.errors && $page.props.errors.otp">You’ve enter wrong code , <span class="text-white underline font-bold">Resend Again</span></p>
+                    <p class="text-red-600 mb-4 font-cantarell" v-if="$page.props.errors && $page.props.errors.otp">You’ve enter wrong code , <span @click="login" class="text-white underline font-bold cursor-pointer">Resend Again</span></p>
 
                     <button @click="exchange"
                         :disabled="otp.length < 6"
@@ -142,6 +147,14 @@ defineProps({
     }
 })
 
+function handleOTPKeyboard(e, i) {
+    if(e.key === "Backspace" && i > 1) {
+        const curr = document.getElementById(`otp-${i-1}`)
+        curr.focus()
+        curr.value = null
+    }
+}
+
 function handleOTPForm(e, i) {
     otp.value[i] = e.data
     const curr = document.getElementById(`otp-${i}`)
@@ -156,11 +169,12 @@ function handleOTPForm(e, i) {
 
 function login() {
     sendingOtp.value = true
+    otp.value = []
     const form = useForm({
         //email: email.value,
         phone_number: country_code.value + '' + phone_number.value,
     })
-    console.log(form);
+
     form.post(route('login'), {
         onSuccess: () => {
             //email.value = ''

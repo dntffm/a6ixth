@@ -43,11 +43,11 @@
                             <!-- <div class="text-xs bg-transparent border border-white rounded-full w-20 text-center">Coming Soon</div> -->
                         </li>
                         <OnClickOutside @trigger="searchActive = false">
-                            <li class="flex items-center mt-10 cursor-pointer hover:text-white hover:border-white text-3xl py-2 mb-2 md:hidden relative">
+                            <li class="flex items-center mt-10 cursor-pointer hover:text-white hover:border-white text-xl py-2 mb-2 md:hidden relative">
                                 <input
                                     @focus="searchActive = true"
                                     v-model="searchQuery"
-                                    class="border-b border-b-[#FFFEF2]/50 border-transparent px-0 focus:border-transparent focus:border-b-white focus:ring-0 outline-none outline-0 w-full placeholder:text-[#FFFEF2]/50 placeholder:text-3xl text-3xl font-cantarell bg-transparent"
+                                    class="border-b border-b-[#FFFEF2]/50 border-transparent px-0 focus:border-transparent focus:border-b-white focus:ring-0 outline-none outline-0 w-full placeholder:text-[#FFFEF2]/50 placeholder:text-xl text-xl font-cantarell bg-transparent"
                                     type="text"
                                     placeholder="Search For"
                                 >
@@ -56,7 +56,7 @@
                         </OnClickOutside>
 
                     </ul>
-                    <div class="w-full">
+                    <div class="w-full" v-if="searchActive === false">
                         <ul class="flex flex-row justify-between items-center text-xs lg:text-sm font-cantarell border-t border-white py-2">
                             <li class="text-[#FFFEF2]/50 hover:text-white ">
                                 <a :href="route('contact.index')">

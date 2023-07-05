@@ -48,7 +48,7 @@ let contents = [
     {
         title: 'Create Your own Role',
         desc: 'We are always looking for talent individuals to join our team. If you believe you have a unique way to help us please reach out to careers@asixth.com',
-        link: 'https://a6ixth-careers.notion.site/Senior-Product-Designer-effc16e50e1e44ac970ac0aa5b7c2c89'
+        link: 'https://www.notion.so/a6ixth-careers/Create-Your-Own-Role-430b5ad80f8442e3a0846c53fc93f9d5?pvs=4'
     },
 ]
 </script>

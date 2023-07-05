@@ -79,7 +79,7 @@ export default {
             name: '',
             email: '',
             images: [
-                '/img/coffee-1.jpeg',
+                //'/img/coffee-1.jpeg',
                 '/img/coffee-2.jpeg',
                 '/img/coffee-3.jpeg',
             ]
