@@ -75,7 +75,7 @@
                     <p class="text-red-600 mb-4 font-cantarell" v-if="$page.props.errors && $page.props.errors.otp">You’ve enter wrong code , <span @click="login" class="text-white underline font-bold cursor-pointer">Resend Again</span></p>
 
                     <button @click="exchange"
-                        :disabled="otp.length < 6"
+                        :disabled="otp.length < 6 || verifyingOtp"
                         class="disabled:cursor-not-allowed cursor-pointer bg-white border border-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-14 md:h-14 w-1/2 md:w-1/3 m-auto transition hover:duration-100">
                         Verify now
                     </button>
@@ -132,6 +132,7 @@ let country_code = ref('+1')
 let name = ref('')
 let profileName = localStorage.getItem('name')
 let sendingOtp = ref(false)
+let verifyingOtp = ref(false)
 
 defineProps({
     dark: {
@@ -185,6 +186,7 @@ function login() {
 }
 
 function exchange() {
+    verifyingOtp.value = true
     const form = useForm({
         phone_number: country_code.value + '' + phone_number.value,
         code: otp.value.join('')
@@ -202,11 +204,13 @@ function exchange() {
     } else {
         form.post(route('exchange'), {
             onSuccess: (res) => {
+                verifyingOtp.value = false
                 if(res.props.user.userprof.name === null) menu.value = 'name'
                 else menu.value = null
             }
         })
     }
+    verifyingOtp.value = false
 }
 
 function setupProfile() {
