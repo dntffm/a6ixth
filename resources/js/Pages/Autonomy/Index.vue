@@ -2,7 +2,15 @@
     <BaseLayout>
 
         <Head title="Autonomy" />
-
+        <div class="absolute top-0 left-0 w-screen h-screen text-white gap-6 bg-black/80 backdrop-blur-md z-50 flex flex-col items-center justify-center p-16 md:p-4 text-center" v-if="autonomyIsFinish">
+            <h1 class="font-neuton text-2xl md:text-2xl">All Set, Thank You!</h1>
+            <p class="font-cantarell text-sm md:text-sm w-64">We are excited to have you join ASIXTH Autonomy. Our dedicated team member will reach out to you soon!</p>
+            <a
+                href="/"
+                class="flex items-center cursor-pointer bg-white border border-white text-black hover:bg-black hover:text-white font-bold p-6 h-14 md:h-14 font-cantarell transition hover:duration-100">
+                Back to Homepage
+            </a>
+        </div>
         <div class="px-4 py-8 md:px-8 md:py-10 md:h-screen">
             <h1 class="text-2xl md:text-4xl font-neuton mb-4">Autonomy</h1>
             <p class="font-cantarell text-black/70 text-sm leading-loose">
@@ -31,7 +39,7 @@
                                 <ChevronDownIcon class="ml-auto w-5 h-5" v-if="!showOptions" />
                                 <ChevronUpIcon class="ml-auto w-5 h-5" v-else />
                             </button>
-                            
+
                             <div class="md:absolute border-black border border-t-0 bg-transparent w-full" v-if="showOptions">
                                 <div class="max-h-[120px] overflow-y-scroll">
                                     <div @click="chooseState(state)"
@@ -80,6 +88,7 @@ import { Head, useForm } from '@inertiajs/vue3';
 import { ref, watch } from 'vue';
 let showOptions = ref(false)
 let search = ref('')
+let autonomyIsFinish = ref(false)
 
 let form = useForm({
     'name': null,
@@ -214,8 +223,11 @@ function chooseState(state) {
 function submit() {
     form.post(route('autonomy.submit'), {
         onFinish: () => {
-            alert('Autonomy has been submitted')
-            form.reset()
+            autonomyIsFinish.value = true
+            form.name = null
+            form.business_name = null
+            form.state = null
+            form.email = null
         }
     })
 }

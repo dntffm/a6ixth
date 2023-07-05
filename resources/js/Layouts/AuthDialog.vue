@@ -57,7 +57,7 @@
                 </button>
                 <div class="mt-4 md:mt-10 mb-10">
                     <h2 class="text-2xl md:text-2xl mb-4">Confirm Your Magic Code</h2>
-                    <p class="text-base font-cantarell mb-4">We've texted a magic code to {{ phone_number }}
+                    <p class="text-base font-cantarell mb-4">We've texted a magic code to {{country_code+''+phone_number }}
                         Enter the code we've sent to your device to login or signup.</p>
 
                     <div class="grid grid-cols-6 gap-2">
@@ -207,10 +207,13 @@ function exchange() {
                 verifyingOtp.value = false
                 if(res.props.user.userprof.name === null) menu.value = 'name'
                 else menu.value = null
+            },
+            onError: () => {
+                verifyingOtp.value = false
             }
         })
     }
-    verifyingOtp.value = false
+    //verifyingOtp.value = false
 }
 
 function setupProfile() {
