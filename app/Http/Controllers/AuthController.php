@@ -47,7 +47,7 @@ class AuthController
                     'send' => 'code',
                 ],
             ]);
-            
+
             return redirect()->back()->with('success', true);
         } catch (\Exception $e) {
             throw $e;
@@ -56,7 +56,7 @@ class AuthController
 
     public function exchange()
     {
-        
+
         $client = new Client();
 
         try {
@@ -94,14 +94,15 @@ class AuthController
 
             return redirect()->back()->with('success', true);
         } catch (\Exception $e) {
-            return redirect()->back()->withErrors([
+            throw $e;
+            /* return redirect()->back()->withErrors([
                 'otp' => true
-            ]);
+            ]); */
         }
     }
 
     public function setupName()
-    {   
+    {
         DB::connection('mysql')->update('
             update users set name = ? where phone_number = ?',
             [
@@ -109,7 +110,7 @@ class AuthController
                 request('phone_number')
             ]
         );
-        
+
         $user = DB::connection('mysql')->select('
             select * from users WHERE phone_number = ? LIMIT 1',
             [
@@ -122,20 +123,20 @@ class AuthController
         }
 
         Session::put('user.userprof', $user[0]);
-            
+
         $client = new Client([
             'headers' => [
                 'Content-Type' => 'application/json'
             ]
         ]);
-        
+
         $data = [
             'data' => [
                 'Name' => request('name') ?? null,
                 'Phone number' => request('phone_number') ?? null
             ]
         ];
-        
+
         $response = $client->post('https://sheetdb.io/api/v1/im0453q0bsllc?sheet=sheet2', [
             'body' => json_encode($data),
         ]);
