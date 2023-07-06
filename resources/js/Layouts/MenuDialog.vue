@@ -8,7 +8,7 @@
                 <button @click="$emit('close', false)">
                     <XMarkIcon class="w-7 h-7 text-white" />
                 </button>
-                {{ windowSize }}
+                
                 <div class="mt-8 flex flex-col h-full justify-between pb-0">
                     <ul class="font-neuton text-[#FFFEF2]/50">
                         <li class="text-4xl mb-2 cursor-pointer" @click="toggleChildMenu" v-if="searchActive === false">
