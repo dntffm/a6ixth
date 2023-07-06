@@ -48,7 +48,7 @@
                 <div>
                     <h3 class="font-neuton text-2xl mb-4">Already Have an Account ?</h3>
                     <p class="font-cantarell text-sm">Provide your phone number above and enter the magic code that
-                        we'll send to your device- you'll be logged into your new account.</p>
+                        we'll send to your device- you'll be logged into your  account.</p>
                 </div>
             </div>
             <div class="md:px-10 md:py-10" v-else-if="menu === 'otp' && $page.props.user == null">

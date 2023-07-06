@@ -8,7 +8,8 @@
                 <button @click="$emit('close', false)">
                     <XMarkIcon class="w-7 h-7 text-white" />
                 </button>
-                <div class="mt-8 flex flex-col h-full justify-between">
+                {{ windowSize }}
+                <div class="mt-8 flex flex-col h-full justify-between pb-0">
                     <ul class="font-neuton text-[#FFFEF2]/50">
                         <li class="text-4xl mb-2 cursor-pointer" @click="toggleChildMenu" v-if="searchActive === false">
                             <div :class="`relative menu-header pb-4 border-b-2 ${active ? 'text-white border-white' : 'border-[#FFFEF2]/50 text-[#FFFEF2]/50'} hover:text-white hover:border-white`">
@@ -65,7 +66,7 @@
                             </li>
                             <li class="text-[#FFFEF2]/50 hover:text-white "> <a :href="route('careers.index')">Careers</a></li>
                             <li class="text-[#FFFEF2]/50 hover:text-white "> <a :href="route('autonomy.index')">Autonomy</a></li>
-                            <li class="text-[#FFFEF2]/50 hover:text-white"><a href="blogs">Blogs</a></li>
+                            <li class="text-[#FFFEF2]/50 hover:text-white"><a href="https://www.notion.so/a6ixth-careers/Future-of-Coffee-fc9b2b9157db44e78f640f24843cf301?pvs=4" target="_blank">Blogs</a></li>
                             <li class="text-[#FFFEF2]/50 hover:text-white "> <a href="faq">FAQs</a></li>
                         </ul>
                     </div>
@@ -103,6 +104,7 @@ defineProps({
     }
 })
 
+let windowSize = screen.width
 let active = ref(false)
 let menu = ref(null)
 let searchQuery = ref(null)

@@ -42,7 +42,7 @@ let contents = [
     {
         title: 'Speak with Concierge',
         desc: 'We welcome you to contacts us via live concierge hours of operation: Monday - Sunday ,24hrs EST',
-        link: 'tel:+19299005608'
+        link: 'sms:+19299005608&body=Hi, Concierge'
     },
     {
         title: 'Press  Inquiries ',

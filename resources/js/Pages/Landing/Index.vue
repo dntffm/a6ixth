@@ -2,7 +2,7 @@
     <main class="w-full vfh md:h-screen">
         <div class="absolute top-0 left-0 w-screen h-screen text-white gap-6 bg-black/40 backdrop-blur-md z-50 flex flex-col items-center justify-center p-16 md:p-4 text-center" v-if="gainAccessIsFinish">
             <h1 class="font-neuton text-2xl md:text-2xl">All Set, You’re In!</h1>
-            <p class="font-cantarell text-sm md:text-sm w-64">We will not reach out to you soon! Thanks for signing up</p>
+            <p class="font-cantarell text-sm md:text-sm w-64">We will reach out to you soon! Thanks for signing up</p>
             <a
                 href="/"
                 class="flex items-center cursor-pointer bg-white border border-white text-black hover:bg-black hover:text-white font-bold p-6 h-14 md:h-14 font-cantarell transition hover:duration-100">
