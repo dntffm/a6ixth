@@ -79,9 +79,13 @@ export default {
             name: '',
             email: '',
             images: [
-                //'/img/coffee-1.jpeg',
-                '/img/coffee-2.jpeg',
-                '/img/coffee-3.jpeg',
+                '/img/bg/1.jpg',
+                '/img/bg/2.jpg',
+                '/img/bg/3.jpg',
+                '/img/bg/4.jpg',
+                '/img/bg/5.jpg',
+                '/img/bg/6.jpg',
+                '/img/bg/7.jpg',
             ]
         }
     },

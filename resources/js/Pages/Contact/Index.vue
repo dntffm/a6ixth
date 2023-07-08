@@ -15,7 +15,7 @@
                         <div class="w-[85%]">
                             <h3 class="font-neuton text-lg mb-2">{{ content.title }}</h3>
                             <div class="flex items-center">
-                                <p class="font-cantarell text-sm text-black/70 leading-loose">{{ content.desc }}</p>
+                                <p class="font-cantarell text-sm text-black/70 leading-loose" v-html="content.desc"></p>
                             </div>
                         </div>
                         <div class="w-[15%]">
@@ -46,8 +46,8 @@ let contents = [
     },
     {
         title: 'Press  Inquiries ',
-        desc: 'For all press related questions and or coverage please reach out via email to press@asixth.com',
-        link: 'mailto:press@asixth.com'
+        desc: 'For all press related questions and or coverage please reach out via email to <span class="hover:underline">communications@asixth.com</span>',
+        link: 'mailto:communications@asixth.com'
     },
 ]
 </script>

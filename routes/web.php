@@ -68,6 +68,7 @@ Route::group(['prefix' => 'about-us'], function() {
 
 Route::group(['prefix' => 'faces'], function() {
     Route::get('', [FacesController::class, 'index'])->name('faces.index');
+    Route::post('sheet', [FacesController::class, 'submitFaces'])->name('faces.submit');
 });
 
 Route::post('gain-access', [NotifiedController::class, 'gainAccess'])->name('gain.access');
