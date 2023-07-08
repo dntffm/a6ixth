@@ -47,7 +47,7 @@ let contents = [
     },
     {
         title: 'Create Your own Role',
-        desc: 'We are always looking for talent individuals to join our team. If you believe you have a unique way to help us please reach out to careers@asixth.com',
+        desc: 'We are always looking for talent individuals to join our team. If you believe you have a unique way to help us please reach out to communications@asixth.com',
         link: 'https://www.notion.so/a6ixth-careers/Create-Your-Own-Role-430b5ad80f8442e3a0846c53fc93f9d5?pvs=4'
     },
 ]

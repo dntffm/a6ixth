@@ -13,7 +13,7 @@
             v-if="showRedeemForm"></div>
         <AppHeaderTransparent class="fixed bg-transparent w-full text-white font-cantarell z-10" />
 
-        <img :src="images[activeImage]" alt="" class="w-full h-full object-cover transition duration-300 brightness-75">
+        <img :src="images[activeImage]" alt="" class="w-full h-full object-cover transition duration-300 brightness-50">
 
         <div class="absolute bottom-24 md:bottom-36 w-full">
             <div class="flex flex-col lg:grid lg:grid-cols-3 gap-2 w-full">
@@ -92,7 +92,7 @@ export default {
     created() {
         setInterval(() => {
             this.activeImage = (this.activeImage + 1) % this.images.length
-        }, 30000);
+        }, 5000);
     },
     methods: {
         redeem() {
