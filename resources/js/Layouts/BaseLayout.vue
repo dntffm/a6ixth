@@ -1,5 +1,5 @@
 <template>
-    <AppHeader class="bg-background font-cantarell text-[#81868B]"/>
+    <AppHeader class="bg-background font-cantarell text-black"/>
     <main class="bg-background flex flex-col">
         <slot></slot>
     </main>

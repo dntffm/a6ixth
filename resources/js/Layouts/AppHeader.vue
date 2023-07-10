@@ -1,8 +1,8 @@
 <template>
-    <AuthDialog :dark="true" @close="$e => showAuthBar = $e" :show="showAuthBar"/>    
+    <AuthDialog :dark="true" @close="$e => showAuthBar = $e" :show="showAuthBar"/>
     <CartDialog :dark="true" @close="$e => showCartBar = $e"  :show="showCartBar"/>
     <MenuDialog :dark="true" @close="$e => showLeftSideBar = $e" :show="showLeftSideBar"/>
-    
+
     <header v-bind="$attrs">
         <div class="w-full py-5">
             <div class="grid grid-cols-3 px-6 md:px-10 py-5">
@@ -18,10 +18,10 @@
                     </a>
 
                     <button @click="showAuthBar = true">
-                        <img src="/icon/a.png" class="w-6"/>
+                        <img src="/icon/user-dark.svg" class="w-5"/>
                     </button>
                     <button @click="showCartBar = true">
-                        <img src="/icon/b.png" class="w-6"/>
+                        <img src="/icon/cart-dark.svg" class="w-5"/>
                     </button>
 
                 </div>
@@ -49,7 +49,7 @@ export default {
         Bars3Icon, UserIcon, ShoppingBagIcon, XMarkIcon,
         AuthDialog, MenuDialog, CartDialog
     },
-    data() { 
+    data() {
         return {
             showLeftSideBar: false,
             showAuthBar: false,

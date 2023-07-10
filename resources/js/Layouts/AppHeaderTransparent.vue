@@ -1,8 +1,8 @@
 <template>
-    <AuthDialog @close="$e => showAuthBar = $e" :show="showAuthBar"/>    
+    <AuthDialog @close="$e => showAuthBar = $e" :show="showAuthBar"/>
     <CartDialog :class="`${showCartBar ? 'visible' : 'invisible'}`" @close="$e => showCartBar = $e" :show="showCartBar"/>
     <MenuDialog @close="$e => showLeftSideBar = $e" :show="showLeftSideBar"/>
-    
+
     <header v-bind="$attrs">
         <div class="w-full py-5">
             <div class="grid grid-cols-3 px-6 md:px-10 py-5">
@@ -18,10 +18,10 @@
                     </a>
 
                     <button @click="showAuthBar = true">
-                        <img src="icon/auth-light.png" class="w-4"/>
+                        <img src="icon/user-white.svg" class="w-5"/>
                     </button>
                     <button @click="showCartBar = true">
-                        <img src="icon/cart-light.png" class="w-4"/>
+                        <img src="icon/cart-white.svg" class="w-5"/>
                     </button>
 
                 </div>
@@ -54,7 +54,7 @@ export default {
             console.log();
         }
     },
-    data() { 
+    data() {
         return {
             showLeftSideBar: false,
             showAuthBar: false,
