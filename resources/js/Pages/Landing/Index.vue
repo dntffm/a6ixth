@@ -13,7 +13,7 @@
             v-if="showRedeemForm"></div>
         <AppHeaderTransparent class="fixed bg-transparent w-full text-white font-cantarell z-10" />
 
-        <img :src="images[activeImage]" alt="" class="w-full h-full object-cover transition duration-300 brightness-50">
+        <img :src="image" rel="prefetch" alt="" class="w-full h-full object-cover transition duration-300 brightness-50" v-for="(image, index) in images" v-show="index === activeImage">
 
         <div class="absolute bottom-24 md:bottom-36 w-full">
             <div class="flex flex-col lg:grid lg:grid-cols-3 gap-2 w-full">
@@ -45,7 +45,7 @@ related emails, and can unsubscribe at any time.</p>
                 <button
                 :disabled="name === '' && email === ''"
                 @click="gainAccess"
-                    class="disabled:cursor-not-allowed cursor-pointer bg-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-20 w-1/2 m-auto transition hover:duration-100">Gain Full Access</button>
+                    class="disabled:cursor-not-allowed cursor-pointer bg-white text-black hover:bg-black hover:text-white font-bold font-cantarell h-14 w-1/2 m-auto transition hover:duration-100">Submit</button>
             </section>
         </Transition>
 
@@ -79,13 +79,13 @@ export default {
             name: '',
             email: '',
             images: [
-                '/img/bg/1.jpg',
-                '/img/bg/2.jpg',
-                '/img/bg/3.jpg',
-                '/img/bg/4.jpg',
-                '/img/bg/5.jpg',
-                '/img/bg/6.jpg',
-                '/img/bg/7.jpg',
+                '/img/bg/1-min.jpg',
+                '/img/bg/2-min.jpg',
+                '/img/bg/3-min.jpg',
+                '/img/bg/4-min.jpg',
+                '/img/bg/5-min.jpg',
+                '/img/bg/6-min.jpg',
+                '/img/bg/7-min.jpg',
             ]
         }
     },
