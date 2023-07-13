@@ -13,7 +13,7 @@
             v-if="showRedeemForm"></div>
         <AppHeaderTransparent class="fixed bg-transparent w-full text-white font-cantarell z-10" />
 
-        <img :src="image" rel="prefetch" alt="" class="w-full h-full object-cover transition duration-300 brightness-50" v-for="(image, index) in images" v-show="index === activeImage">
+        <img :src="image" rel="prefetch" alt="" class="w-full h-full object-cover transition duration-300" v-for="(image, index) in images" v-show="index === activeImage">
 
         <div class="absolute bottom-24 md:bottom-36 w-full">
             <div class="flex flex-col lg:grid lg:grid-cols-3 gap-2 w-full">
