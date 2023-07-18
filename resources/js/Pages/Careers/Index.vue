@@ -38,17 +38,17 @@ let contents = [
     {
         title: 'Founding Engineer',
         desc: 'We are seeking a talented and experienced founding software engineer to join our team and revolutionize the coffee industry',
-        link: 'https://a6ixth-careers.notion.site/Full-Stack-Engineer-3c97af41d92546acbfc0da8dc11f3f2b'
+        link: 'https://asixth-careers.notion.site/Founding-Engineer-3c97af41d92546acbfc0da8dc11f3f2b?pvs=4'
     },
     {
         title: 'Customer Relations',
         desc: 'As a key member of our company, you will be responsible for building and nurturing strong relationships with our customers, ensuring their satisfaction and loyalty',
-        link: 'https://a6ixth-careers.notion.site/Concierge-Specialist-3742c7e741134c0a9bed0aa57ddf9428'
+        link: 'https://asixth-careers.notion.site/Customer-Relations-3742c7e741134c0a9bed0aa57ddf9428?pvs=4'
     },
     {
         title: 'Create Your own Role',
         desc: 'We are always looking for talent individuals to join our team. If you believe you have a unique way to help us please reach out to communications@asixth.com',
-        link: 'https://www.notion.so/a6ixth-careers/Create-Your-Own-Role-430b5ad80f8442e3a0846c53fc93f9d5?pvs=4'
+        link: 'https://asixth-careers.notion.site/Create-Your-Own-Role-430b5ad80f8442e3a0846c53fc93f9d5?pvs=4'
     },
 ]
 </script>

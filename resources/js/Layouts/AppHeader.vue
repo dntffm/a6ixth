@@ -6,11 +6,14 @@
     <header v-bind="$attrs">
         <div class="w-full py-5">
             <div class="grid grid-cols-3 px-6 md:px-10 py-5">
-                <button @click="showLeftSideBar = true">
+                <button class="w-7" @click="showLeftSideBar = true">
                     <Bars3Icon class="w-7 h-7 " />
                 </button>
-                <a href="/">
-                    <img class="w-[20px] mx-auto" src="/img/asixth.png" alt="logo">
+                <a class="group" href="/">
+                    <h1 class="h-[35px] hidden group-hover:block text-center mx-auto text-4xl font-bebas">ASIXTH</h1>
+                    <img class="block group-hover:hidden w-[20px] mx-auto" src="/img/asixth.png" alt="logo">
+                    <!-- <img class="visible group-hover:invisible w-[20px] mx-auto" src="/img/asixth.png" alt="logo">
+                    <h1 class="invisible group-hover:visible mx-auto">ASIXTH</h1> -->
                 </a>
                 <div class="justify-center items-center gap-6 md:gap-7 ml-auto flex">
                     <a :href="route('discover.index')" class="text-medium" href="">

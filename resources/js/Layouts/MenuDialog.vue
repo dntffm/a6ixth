@@ -66,7 +66,7 @@
                             </li>
                             <li class="text-[#FFFEF2]/50 hover:text-white "> <a :href="route('careers.index')">Careers</a></li>
                             <li class="text-[#FFFEF2]/50 hover:text-white "> <a :href="route('autonomy.index')">Autonomy</a></li>
-                            <li class="text-[#FFFEF2]/50 hover:text-white"><a href="https://a6ixth-careers.notion.site/Future-of-Coffee-fc9b2b9157db44e78f640f24843cf301?pvs=4" target="_blank">Blogs</a></li>
+                            <li class="text-[#FFFEF2]/50 hover:text-white"><a href="https://asixth-journals.notion.site/ASIXTH-Journals-4422193032d54f9bb175e2621dfe06a5?pvs=4" target="_blank">Blogs</a></li>
                             <li class="text-[#FFFEF2]/50 hover:text-white "> <a href="faq">FAQs</a></li>
                         </ul>
                     </div>
@@ -112,11 +112,11 @@ let searchActive = ref(false)
 let contents = ref({
     about: {
         title: 'About Us :  <span class="font-bebas">ASIXTH</span>',
-        desc: `ASIXTH is building the new standard for quality in the coffee space. We are making it easier for consumers to differentiate high quality coffee.
-            <br/><br/>
-            We are a company building experiences that allows you to acknowledge the sixth sense of being present and what better way to do so than through coffee. The name blends A + SIXTH together.
-            <br/><br/>
-            We experience life using our five senses but we fail to acknowledge that sixth sense of “being present.” We are building a world where people are aware and present in everything they do.`
+        desc: `ASIXTH is redefining the coffee industry's quality standards, making it simpler for consumers to distinguish exceptional coffee.
+        <br/><br/>
+        The name itself, a fusion of "A" and "SIXTH," represents the often overlooked sixth sense that guides us.
+        <br/><br/>
+        We are dedicated to crafting experiences that enable you to express the intangible emotions experienced when you are at your peak, even when words fall short.`
     },
     typology: {
         title: 'Cultivating Typology',

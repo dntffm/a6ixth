@@ -9,8 +9,9 @@
                 <button @click="showLeftSideBar = true">
                     <Bars3Icon class="w-7 h-7 " />
                 </button>
-                <a href="/">
-                    <img class="w-[20px] mx-auto" src="/img/a6ixth-white.png" alt="logo">
+                <a class="group" href="/">
+                    <h1 class="h-[35px] hidden group-hover:block text-center mx-auto text-4xl font-bebas transition duration-100">ASIXTH</h1>
+                    <img class="block group-hover:hidden w-[20px] mx-auto" src="/img/a6ixth-white.png" alt="logo">
                 </a>
                 <div class="justify-center items-center gap-8 md:gap-8 ml-auto flex">
                     <a :href="route('discover.index')" class="text-medium" href="">
