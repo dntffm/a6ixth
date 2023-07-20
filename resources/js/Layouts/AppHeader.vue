@@ -10,7 +10,7 @@
                     <Bars3Icon class="w-7 h-7 " />
                 </button>
                 <a class="group" href="/">
-                    <h1 class="h-[35px] hidden group-hover:block text-center mx-auto text-4xl font-bebas">ASIXTH</h1>
+                    <h1 class="h-[35px] hidden group-hover:block text-center mx-auto text-2xl font-bebas">ASIXTH</h1>
                     <img class="block group-hover:hidden w-[20px] mx-auto" src="/img/asixth.png" alt="logo">
                     <!-- <img class="visible group-hover:invisible w-[20px] mx-auto" src="/img/asixth.png" alt="logo">
                     <h1 class="invisible group-hover:visible mx-auto">ASIXTH</h1> -->
