@@ -80,7 +80,6 @@ export default {
             email: '',
             images: [
                 '/img/bg/0-min.jpg',
-                '/img/bg/1-min.jpg',
                 '/img/bg/2-min.jpg',
                 '/img/bg/3-min.jpg',
                 '/img/bg/4-min.jpg',
